@@ -1,10 +1,13 @@
 <script setup>
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 </script>
 
 <template>
   <div class="projects-page">
     <div class="page-header">
-      <h1>Mes Projets</h1>
+      <h1>{{ t('projects.title') }}</h1>
     </div>
   </div>
 </template>
@@ -16,17 +19,19 @@
 }
 
 .page-header {
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: var(--background-color-alt);
   padding: 3rem 0;
   text-align: center;
   margin-bottom: 2rem;
+  transition: background-color 0.3s ease;
 }
 
 .page-header h1 {
   font-size: 2.5rem;
-  color: #111827;
+  color: var(--text-color);
   position: relative;
   display: inline-block;
+  transition: color 0.3s ease;
 }
 
 .page-header h1::after {
@@ -37,6 +42,7 @@
   transform: translateX(-50%);
   width: 50px;
   height: 3px;
-  background-color: #4f46e5;
+  background-color: var(--primary-color);
+  transition: background-color 0.3s ease;
 }
 </style>

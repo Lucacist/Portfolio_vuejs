@@ -1,0 +1,31 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "projects": "Projets",
+    "contact": "Contact"
+  },
+  "home": {
+    "title": "Bienvenue sur mon Portfolio",
+    "subtitle": "Développeur Web & Designer"
+  },
+  "projects": {
+    "title": "Mes Projets",
+    "viewProject": "Voir le projet"
+  },
+  "contact": {
+    "title": "Me Contacter",
+    "name": "Nom",
+    "email": "Email",
+    "message": "Message",
+    "send": "Envoyer",
+    "success": "Votre message a été envoyé avec succès !"
+  },
+  "language": {
+    "fr": "FR",
+    "en": "GB",
+    "switchLanguage": "Changer de langue"
+  },
+  "theme": {
+    "switchTheme": "Changer de thème"
+  }
+}

@@ -1,5 +1,9 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
+import { useI18n } from 'vue-i18n';
+import { setLanguage } from '../i18n';
+
+const { t } = useI18n();
 
 const props = defineProps({
   isOpen: {
@@ -24,6 +28,7 @@ const handleClickOutside = (event) => {
 };
 
 const selectLanguage = (lang) => {
+  setLanguage(lang);
   emit('changeLanguage', lang);
   emit('close');
 };
@@ -50,11 +55,11 @@ onUnmounted(() => {
     >
       <div class="language-options">
         <button @click="selectLanguage('fr')" class="language-option">
-          <span class="flag">FR</span>
+          <span class="flag">{{ t('language.fr') }}</span>
           <span>Français</span>
         </button>
         <button @click="selectLanguage('en')" class="language-option">
-          <span class="flag">GB</span>
+          <span class="flag">{{ t('language.en') }}</span>
           <span>English</span>
         </button>
       </div>
@@ -65,12 +70,15 @@ onUnmounted(() => {
 <style scoped>
 .language-modal {
   position: absolute;
-  background-color: white;
+  top: 0;
+  right: 0;
+  background-color: var(--card-bg);
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px var(--shadow-color);
   padding: 0.5rem;
   z-index: 1100;
   min-width: 150px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .language-options {
@@ -86,17 +94,24 @@ onUnmounted(() => {
   padding: 0.75rem 1rem;
   border-radius: 6px;
   text-align: left;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  color: var(--text-color);
 }
 
 .language-option:hover {
-  background-color: #f3f4f6;
+  background-color: var(--border-color);
 }
 span {
   display: flex;
   align-items: center;
   justify-content: center;
   height: auto;
+}
+
+.flag {
+  font-weight: bold;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
 }
 
 

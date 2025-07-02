@@ -1,33 +1,92 @@
+<script setup>
+import { ref, onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
+const isDarkMode = ref(false);
+
+// Fonction pour appliquer le thème
+const applyTheme = (isDark) => {
+  if (isDark) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark');
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+    localStorage.setItem('theme', 'light');
+  }
+};
+
+// Fonction pour changer le thème
+const toggleDarkMode = () => {
+  isDarkMode.value = !isDarkMode.value;
+  applyTheme(isDarkMode.value);
+};
+
+// Fonction pour désactiver explicitement le mode sombre
+const disableDarkMode = () => {
+  isDarkMode.value = false;
+  applyTheme(false);
+};
+
+// Fonction pour activer explicitement le mode sombre
+const enableDarkMode = () => {
+  isDarkMode.value = true;
+  applyTheme(true);
+};
+
+// Vérifier le thème au chargement du composant
+onMounted(() => {
+  // Récupérer le thème depuis localStorage ou utiliser la préférence du système
+  const savedTheme = localStorage.getItem('theme');
+  
+  if (savedTheme === 'dark') {
+    enableDarkMode();
+  } else if (savedTheme === 'light') {
+    disableDarkMode();
+  } else {
+    // Si aucun thème n'est enregistré, utiliser la préférence du système
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (prefersDark) {
+      enableDarkMode();
+    } else {
+      disableDarkMode();
+    }
+  }
+});
+
+// Exposer les fonctions pour permettre le contrôle externe
+defineExpose({
+  enableDarkMode,
+  disableDarkMode,
+  toggleDarkMode
+});
+</script>
+
 <template>
-  <label class="switch">
-    <input type="checkbox" />
-    <span class="slider"></span>
-  </label>
+  <button class="switch" :title="t('theme.switchTheme')" @click="toggleDarkMode">
+    <span class="slider" :class="{ 'active': isDarkMode }"></span>
+  </button>
 </template>
 
 <style scoped>
-/* From Uiverse.io by Voxybuns */
 /* The switch - the box around the slider */
 .switch {
   /* Variables */
   --switch_width: 2em;
   --switch_height: 1em;
-  --thumb_color: #e8e8e8;
+  --thumb_color: var(--background-color);
   --track_color: #e8e8e8;
   --track_active_color: #888;
-  --outline_color: #000;
+  --outline_color: var(--text-color);
   font-size: 17px;
   position: relative;
   display: inline-block;
   width: var(--switch_width);
   height: var(--switch_height);
-}
-
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
 
 /* The slider */
@@ -35,13 +94,12 @@
   box-sizing: border-box;
   border: 2px solid var(--outline_color);
   position: absolute;
-  cursor: pointer;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background-color: var(--track_color);
-  transition: 0.15s;
+  transition: background-color 0.3s ease;
   border-radius: var(--switch_height);
 }
 
@@ -58,30 +116,30 @@
   background-color: var(--thumb_color);
   transform: translateY(-0.2em);
   box-shadow: 0 0.2em 0 var(--outline_color);
-  transition: 0.15s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-input:checked + .slider {
+.slider.active {
   background-color: var(--track_active_color);
 }
 
-input:focus-visible + .slider {
+.switch:focus-visible .slider {
   box-shadow: 0 0 0 2px var(--track_active_color);
 }
 
 /* Raise thumb when hovered */
-input:hover + .slider:before {
+.switch:hover .slider:before {
   transform: translateY(-0.3em);
   box-shadow: 0 0.3em 0 var(--outline_color);
 }
 
-input:checked + .slider:before {
+.slider.active:before {
   transform: translateX(calc(var(--switch_width) - var(--switch_height)))
     translateY(-0.2em);
 }
 
-/* Raise thumb when hovered & checked */
-input:hover:checked + .slider:before {
+/* Raise thumb when hovered & active */
+.switch:hover .slider.active:before {
   transform: translateX(calc(var(--switch_width) - var(--switch_height)))
     translateY(-0.3em);
   box-shadow: 0 0.3em 0 var(--outline_color);

@@ -1,12 +1,17 @@
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
+import { useI18n } from 'vue-i18n';
 import BtnDark from "./btn-dark.vue";
 import LanguageModal from "./language-modal.vue";
+
+const { t, locale } = useI18n();
 
 const isMenuOpen = ref(false);
 const isLanguageModalOpen = ref(false);
 const languageBtnRef = ref(null);
-const currentLanguage = ref('fr'); // fr par défaut
+
+// Utiliser la locale actuelle de i18n
+const currentLanguage = computed(() => locale.value);
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
@@ -33,17 +38,16 @@ const toggleLanguageModal = () => {
 };
 
 const changeLanguage = (lang) => {
-  currentLanguage.value = lang;
-  // Ici, vous pourriez implémenter la logique pour changer la langue de l'application
+  // La logique de changement de langue est maintenant gérée dans le composant language-modal
   console.log(`Langue changée en: ${lang}`);
 };
 
-const navItems = [
-  { name: "Accueil", to: "/" },
-  { name: "À propos", to: "/about" },
-  { name: "Projets", to: "/projects" },
-  { name: "Contact", to: "/contact" },
-];
+// Items de navigation traduits dynamiquement
+const navItems = computed(() => [
+  { name: t('nav.home'), to: "/" },
+  { name: t('nav.projects'), to: "/projects" },
+  { name: t('nav.contact'), to: "/contact" },
+]);
 </script>
 
 <template>
@@ -78,6 +82,7 @@ const navItems = [
             @mouseenter="toggleLanguageModal" 
             @click="toggleLanguageModal"
             ref="languageBtnRef"
+            :title="t('language.switchLanguage')"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -93,7 +98,7 @@ const navItems = [
                 d="m10.5 21 5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 0 1-3.827-5.802"
               />
             </svg>
-            <span class="language-indicator">{{ currentLanguage.toUpperCase() }}</span>
+            <span class="language-indicator">{{ t(`language.${currentLanguage}`) }}</span>
           </button>
         </div>
       </div>
@@ -115,10 +120,12 @@ const navItems = [
   top: 0;
   left: 0;
   right: 0;
-  background-color: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
+  background-color: var(--background-color);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 3px var(--shadow-color);
   padding: 1rem 0;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .container {
@@ -136,8 +143,9 @@ const navItems = [
 .logo a {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #333;
+  color: var(--text-color);
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .nav-links ul {
@@ -149,14 +157,14 @@ const navItems = [
 }
 
 .nav-links a {
-  color: #333;
+  color: var(--text-color);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: #4f46e5;
+  color: var(--primary-color);
 }
 
 .container-btn {
@@ -173,6 +181,7 @@ const navItems = [
 .svg-icon {
   width: 24px;
   height: 24px;
+  color: var(--text-color);
 }
 
 .language-btn {
@@ -186,13 +195,14 @@ const navItems = [
 }
 
 .language-btn:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: var(--border-color);
 }
 
 .language-indicator {
   font-size: 0.80rem;
   font-weight: 600;
-  color: #000;
+  color: var(--text-color);
+  transition: color 0.3s ease;
 }
 
 .menu-toggle {
@@ -221,10 +231,9 @@ const navItems = [
   display: block;
   width: 100%;
   height: 2px;
-  background-color: #333;
+  background-color: var(--text-color);
   transition: all 0.3s ease;
   border-radius: 50px;
-
 }
 
 @media (max-width: 768px) {
@@ -240,9 +249,9 @@ const navItems = [
     left: -100%;
     width: 60%;
     height: 100vh;
-    background-color: white;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-    transition: left 0.3s ease;
+    background-color: var(--background-color);
+    box-shadow: -2px 0 10px var(--shadow-color);
+    transition: left 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
     justify-content: center;
