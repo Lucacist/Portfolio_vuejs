@@ -1,162 +1,92 @@
-<script setup></script>
+<script setup>
+import { ref } from 'vue';
+
+// Créer un tableau de projets pour vue3-masonry
+const projects = ref([
+  {
+    id: 1,
+    image: '/img/signal.png',
+    tech: ['/img/competences/python.svg'],
+    title: 'Projet Escape no Game'
+  },
+  {
+    id: 2,
+    image: '/img/New-life.svg',
+    tech: ['/img/competences/nodejs.svg', '/img/competences/CSS.svg'],
+    title: 'Projet Escape no Game'
+  },
+  {
+    id: 3,
+    image: '/img/signal.png',
+    tech: [],
+    title: 'Projet Escape no Game'
+  },
+  {
+    id: 4,
+    image: '/img/signal.png',
+    tech: [],
+    title: 'Projet Escape no Game'
+  },
+  {
+    id: 5,
+    image: '/img/signal.png',
+    tech: [],
+    title: 'Projet Escape no Game'
+  },
+  {
+    id: 6,
+    image: '/img/signal.png',
+    tech: [],
+    title: 'Projet Escape no Game'
+  },
+  {
+    id: 7,
+    image: '/img/signal.png',
+    tech: [],
+    title: 'Projet Escape no Game'
+  }
+]);
+</script>
 
 <template>
-  <div class="cont-projets">
-    <div class="objet">
-      <div class="image"><img src="/img/signal.png" alt="img" /></div>
-      <div class="icone">
-        <img src="/img/competences/python.svg" alt="img" />
-      </div>
-      <div class="description">
-        Projet Escape no Game
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
-          />
-        </svg>
-      </div>
-    </div>
-    <div class="objet">
-      <div class="image"><img src="/img/New-life.svg" alt="img" /></div>
-      <div class="icone">
-        <img src="/img/competences/nodejs.svg" alt="img" />
-        <img src="/img/competences/CSS.svg" alt="img" />
-      </div>
-      <div class="description">
-        Projet Escape no Game
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
-          />
-        </svg>
-      </div>
-    </div>
-    <div class="objet">
-      <div class="image"><img src="/img/signal.png" alt="img" /></div>
-      <div class="icone"></div>
-      <div class="description">
-        Projet Escape no Game
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
-          />
-        </svg>
-      </div>
-    </div>
-    <div class="objet">
-      <div class="image"><img src="/img/signal.png" alt="img" /></div>
-      <div class="icone"></div>
-      <div class="description">
-        Projet Escape no Game
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
-          />
-        </svg>
-      </div>
-    </div>
-    <div class="objet">
-      <div class="image"><img src="/img/signal.png" alt="img" /></div>
-      <div class="icone"></div>
-      <div class="description">
-        Projet Escape no Game
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
-          />
-        </svg>
-      </div>
-    </div>
-    <div class="objet">
-      <div class="image"><img src="/img/signal.png" alt="img" /></div>
-      <div class="icone"></div>
-      <div class="description">
-        Projet Escape no Game
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
-          />
-        </svg>
-      </div>
-    </div>
-    <div class="objet">
-      <div class="image"><img src="/img/signal.png" alt="img" /></div>
-      <div class="icone"></div>
-      <div class="description">
-        Projet Escape no Game
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
-          />
-        </svg>
-      </div>
-    </div>
+  <div class="cont-projets-wrapper">
+    <masonry-wall :items="projects" :column-width="300" :gap="16" class="cont-projets">
+      <template #default="{ item }">
+        <div class="objet">
+          <div class="image"><img :src="item.image" alt="img" /></div>
+          <div class="icone">
+            <img v-for="(tech, index) in item.tech" :key="index" :src="tech" alt="tech" />
+          </div>
+          <div class="description">
+            {{ item.title }}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+              />
+            </svg>
+          </div>
+        </div>
+      </template>
+    </masonry-wall>
   </div>
 </template>
 
 <style scoped>
-.cont-projets {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem;
+.cont-projets-wrapper {
   padding: 2rem 4vw;
   max-width: 1500px;
+  margin: 0 auto;
+}
+
+.cont-projets {
   margin: 0 auto;
 }
 .objet {
@@ -185,6 +115,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 0.5rem;
 }
 .icone img {
   width: 30px;
@@ -193,12 +124,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.icone {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
 }
 .description {
   display: flex;
