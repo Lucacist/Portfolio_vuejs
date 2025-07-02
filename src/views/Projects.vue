@@ -13,9 +13,9 @@ const { t } = useI18n();
 
 <style scoped>
 .projects-page {
-  min-height: 100vh;
+height: auto;
   padding-top: 80px;
-  
+
 }
 
 </style>
