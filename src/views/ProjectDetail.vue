@@ -28,11 +28,12 @@
 
         <div class="project-image">
           <img
-            v-if="project.id !== 5"
+            v-if="project.id !== 5 && project.id !== 4"
             :src="project.image"
             alt="Image du projet"
           />
-          <GameOfLife v-else />
+          <GameOfLife v-if="project.id === 5" />
+          <StrongboxDemo v-if="project.id === 4" />
         </div>
 
         <div class="project-technologies">
@@ -56,6 +57,9 @@
             Description détaillée du projet à venir...
           </p>
         </div>
+        
+        <!-- Composant de détails techniques supplémentaires -->
+        <ProjectDetails v-if="project" :projectId="project.id" />
         
         <div class="project-links">
           <a 
@@ -102,6 +106,8 @@
 import { ref, computed, onMounted } from "vue";
 import { useRoute } from "vue-router";
 import GameOfLife from "../components/GameOfLife.vue";
+import StrongboxDemo from "../components/StrongboxDemo.vue";
+import ProjectDetails from "../components/ProjectDetails.vue";
 
 // Récupérer l'ID du projet depuis les paramètres de l'URL
 const route = useRoute();
@@ -147,7 +153,7 @@ const projectsList = ref([
     tech: ["/img/competences/C++.svg", "/img/competences/Arduino.svg"],
     title: "Projet Strongbox 3000",
     description:
-      "Un système de sécurité physique développé avec C++ et Arduino.",
+      "Mise en situation: Suite à plusieurs incidents de détournements de matériel, une agence d'espionnage a sollicité nos services pour renforcer de manière significative son système de sécurité. L'objectif principal est de protéger les données sensibles et de prévenir tout accès non autorisé, en particulier en ce qui concerne la création d'un prototype de nouvelle génération. Ce dernier est destiné à être équipé de mécanismes d'authentification plus avancés et efficaces. Notre mission consiste donc à concevoir et mettre en place des solutions de sécurité robustes afin d'assurer l'intégrité du prototype et de garantir la confidentialité des informations stratégiques de l'agence d'espionnage. Comment ça fonctionne ? Le système est un dispositif d'authentification doté de cinq mécanismes de sécurité distincts, chacun correspondant à un niveau de protection spécifique.",
     github: "https://github.com/username/strongbox-3000",
     hasDownload: false
   },
