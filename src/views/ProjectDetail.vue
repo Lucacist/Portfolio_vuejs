@@ -142,10 +142,9 @@ const projectsList = ref([
     tech: ["/img/competences/MySQL.svg"],
     title: "Projet Base de Données",
     description:
-      "Conception et implémentation d'une base de données MySQL optimisée pour les performances.",
+      "Dans notre projet le ministère de l'Écologie a fait appel à notre entreprise, DATA-X, composée des ingénieurs Maxime, Augustin, Evan et dirigée par la cheffe de projet Coline, pour développer un système de gestion des données sur la qualité de l'air autour des dix plus grandes villes françaises. Les agences météorologiques locales collectent ces données à l’aide de capteurs, mais leurs méthodes de stockage diffèrent. Le client souhaite donc une base de données relationnelle fiable pour centraliser et exploiter ces informations. Le projet inclut la gestion des agences et de leur personnel, le traitement des données sur la qualité de l'air, ainsi que la génération de rapports. Des exemples fournis par le client guideront la conception de cette base de données. Comment ça fonctionne ?Nous avons commencé par élaborer le dictionnaire de données, le modèle conceptuel (MCD), le modèle logique, le modèle physique, ainsi que les arbres algébriques des requêtes. Cela nous a permis de structurer et d’organiser clairement tous les éléments nécessaires.",
     github: "",
-    hasDownload: true,
-    downloadFile: "/downloads/database-project.zip"
+    hasDownload: false,
   },
   {
     id: 4,
@@ -154,8 +153,9 @@ const projectsList = ref([
     title: "Projet Strongbox 3000",
     description:
       "Mise en situation: Suite à plusieurs incidents de détournements de matériel, une agence d'espionnage a sollicité nos services pour renforcer de manière significative son système de sécurité. L'objectif principal est de protéger les données sensibles et de prévenir tout accès non autorisé, en particulier en ce qui concerne la création d'un prototype de nouvelle génération. Ce dernier est destiné à être équipé de mécanismes d'authentification plus avancés et efficaces. Notre mission consiste donc à concevoir et mettre en place des solutions de sécurité robustes afin d'assurer l'intégrité du prototype et de garantir la confidentialité des informations stratégiques de l'agence d'espionnage. Comment ça fonctionne ? Le système est un dispositif d'authentification doté de cinq mécanismes de sécurité distincts, chacun correspondant à un niveau de protection spécifique.",
-    github: "https://github.com/username/strongbox-3000",
-    hasDownload: false
+    github: "",
+    hasDownload: true,
+    downloadFile: "/downloads/strongbox.ino"
   },
   {
     id: 5,
