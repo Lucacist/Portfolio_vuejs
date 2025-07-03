@@ -17,7 +17,7 @@ const projects = ref([
   {
     id: 2,
     image: "/img/New-life.svg",
-    tech: ["/img/competences/nodejs.svg", "/img/competences/CSS.svg"],
+    tech: ["/img/competences/next.svg", "/img/competences/CSS.svg"],
     title: "Projet New Life",
   },
   {
@@ -39,15 +39,15 @@ const projects = ref([
   },
   {
     id: 6,
-    image: "/img/signal.png",
-    tech: [],
-    title: "Projet Escape no Game",
+    image: "/img/formation-tel-tab.png",
+    tech: ["/img/competences/React.svg", "/img/competences/nodejs.svg"],
+    title: "Projet site de Formation",
   },
   {
     id: 7,
-    image: "/img/signal.png",
-    tech: [],
-    title: "Projet Escape no Game",
+    image: "/img/ancien-portfolio.png",
+    tech: ["/img/competences/HTML.svg", "/img/competences/CSS.svg", "/img/competences/javascript.svg"],
+    title: "Ancien Portfolio",
   },
 ]);
 </script>
@@ -61,36 +61,38 @@ const projects = ref([
       class="cont-projets"
     >
       <template #default="{ item }">
-        <div class="objet">
-          <div class="image">
-            <img v-if="item.id !== 5" :src="item.image" alt="img" />
-            <GameOfLife v-else />
-          </div>
-          <div class="icone">
-            <img
-              v-for="(tech, index) in item.tech"
-              :key="index"
-              :src="tech"
-              alt="tech"
-            />
-          </div>
-          <div class="description">
-            {{ item.title }}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+        <router-link :to="{ name: 'project-detail', params: { id: item.id } }" class="objet-link">
+          <div class="objet">
+            <div class="image">
+              <img v-if="item.id !== 5" :src="item.image" alt="img" />
+              <GameOfLife v-else />
+            </div>
+            <div class="icone">
+              <img
+                v-for="(tech, index) in item.tech"
+                :key="index"
+                :src="tech"
+                alt="tech"
               />
-            </svg>
+            </div>
+            <div class="description">
+              {{ item.title }}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+                />
+              </svg>
+            </div>
           </div>
-        </div>
+        </router-link>
       </template>
     </masonry-wall>
   </div>
@@ -105,6 +107,13 @@ const projects = ref([
 
 .cont-projets {
   margin: 0 auto;
+}
+
+.objet-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
 }
 
 .objet {
@@ -127,7 +136,7 @@ const projects = ref([
   transform: rotate(0deg);
 }
 .image img {
-  width: 50%;
+  width: 70%;
 }
 .icone {
   display: flex;
@@ -149,6 +158,7 @@ const projects = ref([
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  color: var(--text-color);
 }
 .description svg {
   width: 20px;
