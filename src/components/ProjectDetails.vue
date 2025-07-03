@@ -178,4 +178,15 @@ defineProps({
     grid-column: 1 / -1;
   }
 }
+
+@media (max-width: 550px) {
+  .ligne1 {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, auto);
+  }
+  .ligne2 {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, auto);
+  }
+}
 </style>
