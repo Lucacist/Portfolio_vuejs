@@ -1,14 +1,17 @@
 <script setup>
-import { useI18n } from 'vue-i18n';
+import { useI18n } from "vue-i18n";
 
 const { t } = useI18n();
 </script>
 
 <template>
   <div class="home">
-    <div class="hero-section">
-      <h1>{{ t('home.title') }}</h1>
-      <p>{{ t('home.subtitle') }}</p>
+    <div class="container">
+      <div class="hero-section">
+        <h1>{{ t("home.title") }}</h1>
+        <p>{{ t("home.subtitle") }}</p>
+      </div>
+      <img src="/img/fr.svg" alt="" />
     </div>
   </div>
 </template>
@@ -17,6 +20,17 @@ const { t } = useI18n();
 .home {
   min-height: 100vh;
   padding-top: 80px; /* Pour la navbar fixe */
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.container img {
+  width: 80%;
+  margin: 0 auto;
 }
 
 .hero-section {

@@ -10,6 +10,7 @@
   --shadow-color: rgba(0, 0, 0, 0.1);
   --header-bg: rgba(255, 255, 255, 0.9);
   --card-bg: #f3efef;
+  --scrollbar-color: #dde2ec;
 }
 
 [data-theme="dark"] {
@@ -24,6 +25,7 @@
   --shadow-color: rgba(255, 255, 255, 0.3);
   --header-bg: rgba(17, 24, 39, 0.9);
   --card-bg: #1f2937;
+  --scrollbar-color: #484a4d;
 }
 
 * {
@@ -82,5 +84,18 @@ li {
   list-style: none;
   margin: 0;
 }
-  
 
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-color);
+  border-radius: 10px;
+}
