@@ -1,6 +1,6 @@
 <template>
   <div v-if="projectId === 4" class="project-additional-details">
-    <h3>Détails techniques</h3>
+    <h3>{{ $t('projects.details') }}</h3>
 
     <div v-if="projectId === 4" class="strongbox-details">
       <div class="ligne1">
@@ -19,13 +19,10 @@
                   fill="white"
                 />
               </svg>
-              <div class="texte">Scan Digitale</div>
+              <div class="texte">{{ $t('projects.project4.securityFeatures.scanDigitalTitle') }}</div>
             </div>
             <div class="card-back">
-              <p>
-                Système de scan digital avancé permettant une authentification
-                biométrique sécurisée.
-              </p>
+              <p>{{ $t('projects.project4.securityFeatures.scanDigital') }}</p>
             </div>
           </div>
         </div>
@@ -50,13 +47,10 @@
                   fill="white"
                 />
               </svg>
-              <div class="texte">Scan Rétinien</div>
+              <div class="texte">{{ $t('projects.project4.securityFeatures.scanRetinalTitle') }}</div>
             </div>
             <div class="card-back">
-              <p>
-                Technologie de reconnaissance rétinienne haute précision pour
-                une sécurité maximale.
-              </p>
+              <p>{{ $t('projects.project4.securityFeatures.scanRetinal') }}</p>
             </div>
           </div>
         </div>
@@ -75,14 +69,10 @@
                   fill="white"
                 />
               </svg>
-              <div class="texte">Card ID</div>
+              <div class="texte">{{ $t('projects.project4.securityFeatures.cardIDTitle') }}</div>
             </div>
             <div class="card-back">
-              <p>
-                Le système de carte d'identité compare les numéros d'agents à
-                leurs numéros binaires. Si les numéros ne correspondent pas, le
-                système se bloque.
-              </p>
+              <p>{{ $t('projects.project4.securityFeatures.cardID') }}</p>
             </div>
           </div>
         </div>
@@ -107,13 +97,10 @@
                   fill="white"
                 />
               </svg>
-              <div class="texte">Code Dynamique</div>
+              <div class="texte">{{ $t('projects.project4.securityFeatures.dynamicCodeTitle') }}</div>
             </div>
             <div class="card-back">
-              <p>
-                Génération de codes temporaires à usage unique pour une
-                authentification à deux facteurs.
-              </p>
+              <p>{{ $t('projects.project4.securityFeatures.dynamicCode') }}</p>
             </div>
           </div>
         </div>
@@ -132,13 +119,10 @@
                   fill="white"
                 />
               </svg>
-              <div class="texte">Authentification Q&R</div>
+              <div class="texte">{{ $t('projects.project4.securityFeatures.qaAuthTitle') }}</div>
             </div>
             <div class="card-back">
-              <p>
-                Système de questions et réponses personnalisées comme couche de
-                sécurité supplémentaire.
-              </p>
+              <p>{{ $t('projects.project4.securityFeatures.qaAuth') }}</p>
             </div>
           </div>
         </div>
@@ -182,18 +166,18 @@
           </tr>
         </table>
         <div class="modele-agent">
-          <p>MA1: Authentification Q&R</p>
-          <p>MA2: Code Dynamique</p>
-          <p>MA3: Scan Rétinien</p>
-          <p>MA4: Scan Digital</p>
-          <p>MA5: Card ID</p>
+          <p>MA1: {{ $t('projects.project4.securityFeatures.qaAuthTitle') }}</p>
+          <p>MA2: {{ $t('projects.project4.securityFeatures.dynamicCodeTitle') }}</p>
+          <p>MA3: {{ $t('projects.project4.securityFeatures.scanRetinalTitle') }}</p>
+          <p>MA4: {{ $t('projects.project4.securityFeatures.scanDigitalTitle') }}</p>
+          <p>MA5: {{ $t('projects.project4.securityFeatures.cardIDTitle') }}</p>
         </div>
       </div>
       <img class="strongbox-image" src="/img/coffre-tinkercad.png" alt="schéma du coffre">
     </div>
   </div>
   <div v-if="projectId === 3" class="project-additional-details">
-    <h3>Détails techniques</h3>
+    <h3>{{ $t('projects.details') }}</h3>
 
     <div v-if="projectId === 3" class="strongbox-details">
       <img class="strongbox-image" src="/img/MCD.webp" alt="MCD">
@@ -203,6 +187,9 @@
 </template>
 
 <script setup>
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 defineProps({
   projectId: {

@@ -49,7 +49,6 @@ onUnmounted(() => {
       class="language-modal" 
       ref="modalRef"
       :style="{
-        top: `${position.top}px`,
         right: `${position.right}px`
       }"
     >
@@ -69,8 +68,8 @@ onUnmounted(() => {
 
 <style scoped>
 .language-modal {
-  position: absolute;
-  top: 0;
+  position: fixed;
+  top: 82px;
   right: 0;
   background-color: var(--card-bg);
   border-radius: 8px;

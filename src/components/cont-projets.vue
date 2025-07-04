@@ -5,49 +5,47 @@ import GameOfLife from "./GameOfLife.vue";
 
 const { t } = useI18n();
 
+// Fonction pour récupérer le titre localisé d'un projet
+const getLocalizedProjectTitle = (projectId) => {
+  return t(`projects.project${projectId}.title`) || "";
+};
+
 
 // Créer un tableau de projets pour vue3-masonry
 const projects = ref([
   {
     id: 1,
     image: "/img/signal.png",
-    tech: ["/img/competences/python.svg"],
-    title: "Projet Escape no Game",
+    tech: ["/img/competences/python.svg"]
   },
   {
     id: 2,
     image: "/img/New-life.svg",
-    tech: ["/img/competences/next.svg", "/img/competences/CSS.svg"],
-    title: "Projet New Life",
+    tech: ["/img/competences/next.svg", "/img/competences/CSS.svg"]
   },
   {
     id: 3,
     image: "/img/bdd.png",
-    tech: ["/img/competences/MySQL.svg"],
-    title: "Projet Base de Données",
+    tech: ["/img/competences/MySQL.svg"]
   },
   {
     id: 4,
     image: "/img/strongbox.svg",
-    tech: ["/img/competences/C++.svg", "/img/competences/Arduino.svg"],
-    title: "Projet Strongbox 3000",
+    tech: ["/img/competences/C++.svg", "/img/competences/Arduino.svg"]
   },
   {
     id: 5,
-    tech: ["/img/competences/C++.svg", "/img/competences/C.svg"],
-    title: "Jeu de la Vie de Conway",
+    tech: ["/img/competences/C++.svg", "/img/competences/C.svg"]
   },
   {
     id: 6,
     image: "/img/formation-tel-tab.png",
-    tech: ["/img/competences/React.svg", "/img/competences/nodejs.svg"],
-    title: "Projet site de Formation",
+    tech: ["/img/competences/React.svg", "/img/competences/nodejs.svg"]
   },
   {
     id: 7,
     image: "/img/ancien-portfolio.png",
-    tech: ["/img/competences/HTML.svg", "/img/competences/CSS.svg", "/img/competences/javascript.svg"],
-    title: "Ancien Portfolio",
+    tech: ["/img/competences/HTML.svg", "/img/competences/CSS.svg", "/img/competences/javascript.svg"]
   },
 ]);
 </script>
@@ -76,7 +74,7 @@ const projects = ref([
               />
             </div>
             <div class="description">
-              {{ item.title }}
+              {{ getLocalizedProjectTitle(item.id) }}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
