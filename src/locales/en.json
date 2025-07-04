@@ -10,7 +10,56 @@
   },
   "projects": {
     "title": "My Projects",
-    "viewProject": "View project"
+    "viewProject": "View project",
+    "details": "Technical details",
+    "technologiesUsed": "Technologies used",
+    "description": "Description",
+    "descriptionComingSoon": "Detailed project description coming soon...",
+    "downloadCode": "Download code",
+    "viewOnGithub": "View on GitHub",
+    "backToProjects": "Back to projects",
+    "projectNotFound": "Project not found",
+    "projectDoesNotExist": "The project you are looking for does not exist.",
+    "project1": {
+      "title": "Escape no Game Project",
+      "description": "This project aims to develop a solution ensuring communication in areas without network coverage, such as those where waves are blocked. Following the infiltration of agent K57, captured in a cyber-pirate base inaccessible by conventional methods, the objective is to prevent such situations from recurring by designing technology adapted to these critical environments. How does it work? The agent speaks into a microphone, where the sound is converted into a signal that varies according to what they say and how they say it. This signal is characterized by its intensity, frequency, and amplitude. The signal is then transmitted by a transmitter on an inaudible frequency, allowing messages to be sent without risk of detection. The listening agent intercepts this signal, decodes it, and transcribes the voice and message of the transmitter. To analyze the sound signal, it is first converted into an electrical signal, whose voltage evolves in synchronization with the sound signal and shares the same period. This method not only allows the message to be transcribed but also captures the emotions expressed at the time of recording by observing variations in the different curves."
+    },
+    "project2": {
+      "title": "New Life Project",
+      "description": "Modern web application developed with Next.js and advanced CSS."
+    },
+    "project3": {
+      "title": "Database Project",
+      "description": "In our project, the Ministry of Ecology called upon our company, DATA-X, composed of engineers Maxime, Augustin, Evan, and led by project manager Coline, to develop a data management system for air quality around the ten largest French cities. Local meteorological agencies collect this data using sensors, but their storage methods differ. The client therefore wants a reliable relational database to centralize and exploit this information. The project includes managing agencies and their staff, processing air quality data, and generating reports. Examples provided by the client will guide the design of this database. How does it work? We started by developing the data dictionary, the conceptual model (MCD), the logical model, the physical model, as well as the algebraic trees of queries. This allowed us to clearly structure and organize all the necessary elements."
+    },
+    "project4": {
+      "title": "Strongbox 3000 Project",
+      "description": "Scenario: Following several incidents of equipment misappropriation, an intelligence agency has requested our services to significantly strengthen its security system. The main objective is to protect sensitive data and prevent any unauthorized access, particularly regarding the creation of a next-generation prototype. The latter is intended to be equipped with more advanced and effective authentication mechanisms. Our mission is therefore to design and implement robust security solutions to ensure the integrity of the prototype and guarantee the confidentiality of the intelligence agency's strategic information. How does it work? The system is an authentication device with five distinct security mechanisms, each corresponding to a specific level of protection.",
+      "securityFeatures": {
+        "scanDigitalTitle": "Digital Scan",
+        "scanDigital": "Advanced digital scanning system enabling secure biometric authentication.",
+        "scanRetinalTitle": "Retinal Scan",
+        "scanRetinal": "High-precision retinal recognition technology for maximum security.",
+        "cardIDTitle": "Card ID",
+        "cardID": "The ID card system compares agent numbers with their binary numbers. If the numbers do not match, the system locks.",
+        "dynamicCodeTitle": "Dynamic Code",
+        "dynamicCode": "Generation of single-use temporary codes for two-factor authentication.",
+        "qaAuthTitle": "Q&A Authentication",
+        "qaAuth": "System of personalized questions and answers as an additional security layer."
+      }
+    },
+    "project5": {
+      "title": "Conway's Game of Life",
+      "description": "The Game of Life is a fascinating cellular automaton created by mathematician John Conway in 1970. This project is an interactive implementation that allows exploring emergent patterns and complex behaviors that can arise from very simple rules.<br><br>It was completed in less than a week as part of a two-person group project, using object-oriented programming (OOP) with the C++ language.<br><br>The game's operation is based on a few simple rules:<br>- A dead cell surrounded by exactly three living neighbors becomes alive<br>- A living cell stays alive if it has two or three living neighbors<br>- It dies of loneliness if it has fewer than two living neighbors<br>- It dies of overpopulation if it has more than three<br><br>The game takes place on a two-dimensional grid, with each cell being influenced by its eight adjacent neighbors. Two execution modes are available: a console mode and a graphical mode. The latter offers the possibility to interact directly with the grid, adding or removing cells with a simple click, and adjusting the simulation speed using the '<' and '>' keys.<br><br>An additional feature allows activating the toric mode, in which the edges of the grid are connected to each other, as if the grid were folded onto itself. Finally, obstacle cells can be placed on the grid; these remain fixed and do not undergo any evolution over iterations."
+    },
+    "project6": {
+      "title": "Training Website Project",
+      "description": "Online training platform developed with React and Node.js."
+    },
+    "project7": {
+      "title": "Old Portfolio",
+      "description": "My previous portfolio created with HTML, CSS, and JavaScript."
+    }
   },
   "contact": {
     "title": "Contact Me",

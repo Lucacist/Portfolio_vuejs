@@ -20,7 +20,7 @@
                 />
               </svg>
 
-              Retour aux projets
+              {{ $t('projects.backToProjects') }}
             </router-link>
           </div>
         </div>
