@@ -6,7 +6,10 @@
   },
   "home": {
     "title": "Welcome to my Portfolio",
-    "subtitle": "Engineering preparatory student, specializing in computer science"
+    "subtitle": "Engineering preparatory student, specializing in computer science",
+    "presentationText": "Hello, I'm Luca. I love exploring new technologies and creating innovative solutions. When I'm not designing, I enjoy surfing and playing video games!",
+    "carouselTitle": "My Skills"
+
   },
   "projects": {
     "title": "My Projects",

@@ -6,7 +6,9 @@
   },
   "home": {
     "title": "Bienvenue sur mon Portfolio",
-    "subtitle": "Étudiant en prépa ingénieur, spécialité informatique"
+    "subtitle": "Étudiant en prépa ingénieur, spécialité informatique",
+    "presentationText": "Bonjour, je m'appelle Luca. J'adore explorer de nouvelles technologies et créer des solutions innovantes. Lorsque je ne suis pas en train de concevoir, j'aime le surf et jouer à des jeux vidéo !",
+    "carouselTitle": "Mes Compétences"
   },
   "projects": {
     "title": "Mes Projets",

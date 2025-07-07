@@ -1,5 +1,6 @@
 <script setup>
 import { useI18n } from "vue-i18n";
+import Carousel from "../components/Carousel.vue";
 
 const { t } = useI18n();
 </script>
@@ -12,6 +13,13 @@ const { t } = useI18n();
         <p>{{ t("home.subtitle") }}</p>
       </div>
       <img src="/img/fr.svg" alt="" />
+    </div>
+    <div class="presentation">
+      <p>{{ t("home.presentationText") }}</p>
+    </div>
+    <div class="carousell">
+      <h2>{{ t("home.carouselTitle") }}</h2>
+    <Carousel />
     </div>
   </div>
 </template>
@@ -56,5 +64,67 @@ const { t } = useI18n();
   max-width: 600px;
   margin: 0 auto;
   transition: color 0.3s ease;
+}
+
+.presentation {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 4.5rem;
+  text-align: center;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.carousell {
+    width: 90%;
+    overflow: hidden;
+    margin: 0 auto;
+    max-width: 1200px;
+    margin:5rem auto;
+  }
+
+@media (max-width: 950px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    height: calc(100vh - 80px);
+  }
+  .hero-section {
+    min-height: 0;
+  }
+  .container img {
+    width: 40%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .container img {
+    width: 70%;
+    margin: 0 auto;
+  }
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+  .hero-section p {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+  .hero-section p {
+    font-size: 1rem;
+  }
+  .container {
+    height: calc(100vh - 150px);
+    margin-bottom: 80px;
+  }
 }
 </style>
