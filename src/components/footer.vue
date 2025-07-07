@@ -1,4 +1,7 @@
 <script setup>
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
+
 const currentYear = new Date().getFullYear();
 </script>
 
@@ -15,19 +18,17 @@ const currentYear = new Date().getFullYear();
           <div class="link-group">
             <h4>Navigation</h4>
             <ul>
-              <li><router-link to="/">Accueil</router-link></li>
-              <li><router-link to="/about">À propos</router-link></li>
-              <li><router-link to="/projects">Projets</router-link></li>
-              <li><router-link to="/contact">Contact</router-link></li>
+              <li><router-link to="/">{{ t("nav.home") }}</router-link></li>
+              <li><router-link to="/projects">{{ t("nav.projects") }}</router-link></li>
+              <li><router-link to="/contact">{{ t("nav.contact") }}</router-link></li>
             </ul>
           </div>
           
           <div class="link-group">
             <h4>Social</h4>
             <ul>
-              <li><a href="#" target="_blank">LinkedIn</a></li>
-              <li><a href="#" target="_blank">GitHub</a></li>
-              <li><a href="#" target="_blank">Twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/luca-fourfooz-593978336/" target="_blank">LinkedIn</a></li>
+              <li><a href="https://github.com/Lucacist" target="_blank">GitHub</a></li>
             </ul>
           </div>
         </div>
