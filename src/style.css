@@ -7,6 +7,7 @@
   --background-color: #ffffff;
   --background-color-alt: #f9fafb;
   --border-color: #e5e7eb;
+  --button-color: #d5d5d9;
   --shadow-color: rgba(0, 0, 0, 0.1);
   --header-bg: rgba(255, 255, 255, 0.9);
   --card-bg: #f3efef;
@@ -22,6 +23,7 @@
   --background-color: #0a0a0a;
   --background-color-alt: #1f2937;
   --border-color: #484a4d;
+  --button-color: #4c4b53;
   --shadow-color: rgba(255, 255, 255, 0.3);
   --header-bg: rgba(17, 24, 39, 0.9);
   --card-bg: #1f2937;

@@ -1,6 +1,7 @@
 <script setup>
 import { useI18n } from "vue-i18n";
 import Carousel from "../components/Carousel.vue";
+import projetetcv from "../components/projetetcv.vue";
 
 const { t } = useI18n();
 </script>
@@ -21,6 +22,7 @@ const { t } = useI18n();
       <h2>{{ t("home.carouselTitle") }}</h2>
     <Carousel />
     </div>
+    <projetetcv />
   </div>
 </template>
 

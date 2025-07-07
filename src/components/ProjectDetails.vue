@@ -357,6 +357,12 @@ td {
   }
 }
 
+@media (max-width: 600px) {
+  .table-child {
+    width: 350px;
+  }
+}
+
 @media (max-width: 550px) {
   .ligne1 {
     grid-template-columns: repeat(1, 1fr);
@@ -366,5 +372,14 @@ td {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(2, auto);
   }
+}
+
+@media (max-width: 500px) {
+  .table-child {
+    width: 250px;
+  }
+ td {
+  height: 30px;
+}
 }
 </style>

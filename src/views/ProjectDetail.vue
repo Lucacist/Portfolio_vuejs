@@ -308,7 +308,7 @@ onMounted(() => {
   align-items: center;
   gap: 0.5rem;
   color: var(--text-color);
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 0;
   border-radius: 4px;
   text-decoration: none;
   font-weight: 600;

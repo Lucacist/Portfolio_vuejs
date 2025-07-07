@@ -8,8 +8,12 @@
     "title": "Welcome to my Portfolio",
     "subtitle": "Engineering preparatory student, specializing in computer science",
     "presentationText": "Hello, I'm Luca. I love exploring new technologies and creating innovative solutions. When I'm not designing, I enjoy surfing and playing video games!",
-    "carouselTitle": "My Skills"
-
+    "carouselTitle": "My Skills",
+    "projectsCV": {
+      "tagline": "Discover my projects and professional journey",
+      "viewProjects": "View my projects",
+      "downloadCV": "Download my CV"
+    }
   },
   "projects": {
     "title": "My Projects",

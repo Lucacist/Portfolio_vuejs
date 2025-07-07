@@ -165,7 +165,7 @@ function prev() {
   gap: 1rem;
   overflow-x: auto;
   scroll-behavior: smooth;
-  padding: 1rem 2rem;
+  padding: 2rem;
   scrollbar-width: none;
 }
 
