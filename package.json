@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@yeger/vue-masonry-wall": "^5.0.20",
     "vue": "^3.5.17",
     "vue-i18n": "^9.14.4",

@@ -74,7 +74,8 @@
     "email": "Email",
     "message": "Message",
     "send": "Send",
-    "success": "Your message has been sent successfully!"
+    "success": "Your message has been sent successfully!",
+    "error": "An error occurred while sending your message. Please try again."
   },
   "language": {
     "fr": "FR",

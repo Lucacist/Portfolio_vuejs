@@ -74,7 +74,8 @@
     "email": "Email",
     "message": "Message",
     "send": "Envoyer",
-    "success": "Votre message a été envoyé avec succès !"
+    "success": "Votre message a été envoyé avec succès !",
+    "error": "Une erreur est survenue lors de l'envoi du message. Veuillez réessayer."
   },
   "language": {
     "fr": "FR",
