@@ -164,7 +164,7 @@ const navItems = computed(() => [
 }
 
 .nav-links a:hover {
-  color: var(--primary-color);
+  color: var(--primary-color-hover);
 }
 
 .container-btn {

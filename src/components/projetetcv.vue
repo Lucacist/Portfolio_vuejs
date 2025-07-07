@@ -84,7 +84,7 @@ const { t } = useI18n();
   text-decoration: none;
   transition: all 0.3s ease;
   cursor: pointer;
-  background-color: var(--button-color);
+  background-color: var(--primary-color);
 }
 
 .projects-btn {
