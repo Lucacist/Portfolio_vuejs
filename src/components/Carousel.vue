@@ -70,6 +70,7 @@ const skills = [
   "nodejs.svg",
   "notion.svg",
   "php.svg",
+  "Postgresql.svg",
   "python.svg",
 ];
 

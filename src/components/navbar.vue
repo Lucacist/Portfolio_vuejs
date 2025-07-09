@@ -161,6 +161,28 @@ const navItems = computed(() => [
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--text-color);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+  background-color: var(--primary-color-hover);
+}
+
+.nav-links a.router-link-active::after {
+  width: 100%;
 }
 
 .nav-links a:hover {

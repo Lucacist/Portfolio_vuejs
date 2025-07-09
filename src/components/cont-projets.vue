@@ -21,7 +21,7 @@ const projects = ref([
   {
     id: 2,
     image: "/img/New-life.svg",
-    tech: ["/img/competences/next.svg", "/img/competences/CSS.svg"]
+    tech: ["/img/competences/next.svg", "/img/competences/CSS.svg", "/img/competences/Postgresql.svg"]
   },
   {
     id: 3,
@@ -40,12 +40,17 @@ const projects = ref([
   {
     id: 6,
     image: "/img/formation-tel-tab.png",
-    tech: ["/img/competences/React.svg", "/img/competences/nodejs.svg"]
+    tech: ["/img/competences/React.svg", "/img/competences/nodejs.svg", "/img/competences/Postgresql.svg"]
   },
   {
     id: 7,
     image: "/img/ancien-portfolio.png",
     tech: ["/img/competences/HTML.svg", "/img/competences/CSS.svg", "/img/competences/javascript.svg"]
+  },
+  {
+    id: 8,
+    image: "/img/Stagelink.png",
+    tech: ["/img/competences/php.svg", "/img/competences/CSS.svg", "/img/competences/MySQL.svg"]
   },
 ]);
 </script>
