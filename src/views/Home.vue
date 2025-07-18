@@ -2,6 +2,7 @@
 import { useI18n } from "vue-i18n";
 import Carousel from "../components/Carousel.vue";
 import projetetcv from "../components/projetetcv.vue";
+import propositions_projets from "../components/propositions_projets.vue";
 
 const { t } = useI18n();
 </script>
@@ -22,6 +23,7 @@ const { t } = useI18n();
       <h2>{{ t("home.carouselTitle") }}</h2>
     <Carousel />
     </div>
+    <propositions_projets />
     <projetetcv />
   </div>
 </template>
@@ -29,7 +31,7 @@ const { t } = useI18n();
 <style scoped>
 .home {
   min-height: 100vh;
-  padding-top: 80px; /* Pour la navbar fixe */
+  padding-top: 80px; 
 }
 
 .container {

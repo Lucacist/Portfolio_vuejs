@@ -13,6 +13,23 @@
       "tagline": "Découvrez mes projets et mon parcours professionnel",
       "viewProjects": "Voir mes projets",
       "downloadCV": "Télécharger mon CV"
+    },
+    "propositions": {
+      "title": "Mes Services",
+      "subtitle": "Je propose des solutions sur mesure pour vos besoins numériques",
+      "webDev": {
+        "title": "Développement Web",
+        "description": "Création de sites web modernes, responsives et optimisés pour le référencement."
+      },
+      "appDev": {
+        "title": "Applications",
+        "description": "Développement d'applications web et mobiles personnalisées selon vos besoins."
+      },
+      "plugins": {
+        "title": "Plugins & Extensions",
+        "description": "Création de plugins et extensions pour étendre les fonctionnalités de vos plateformes."
+      },
+      "contactMe": "Me contacter"
     }
   },
   "projects": {
