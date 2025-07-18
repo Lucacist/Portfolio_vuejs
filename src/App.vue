@@ -1,10 +1,12 @@
 <script setup>
 import Navbar from './components/navbar.vue';
 import Footer from './components/footer.vue';
+import PageTitle from './components/PageTitle.vue';
 </script>
 
 <template>
   <div class="app">
+    <PageTitle />
     <Navbar />
     <main>
       <router-view></router-view>
