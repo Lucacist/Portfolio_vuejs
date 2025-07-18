@@ -24,6 +24,7 @@
     "descriptionComingSoon": "Detailed project description coming soon...",
     "downloadCode": "Download code",
     "viewOnGithub": "View on GitHub",
+    "visitSite": "Visit Site",
     "backToProjects": "Back to projects",
     "projectNotFound": "Project not found",
     "projectDoesNotExist": "The project you are looking for does not exist.",
@@ -65,10 +66,22 @@
     },
     "project7": {
       "title": "Old Portfolio",
-      "description": "My previous portfolio created with HTML, CSS, and JavaScript."
+      "description": "My previous portfolio was entirely developed using HTML5, CSS3, and JavaScript. It was a front-end project built without any frameworks, in order to strengthen my understanding of core web technologies. The page structure was designed semantically with HTML5, using appropriate tags to improve accessibility and SEO. The visual styling was handled with CSS3, featuring a responsive layout based on Flexbox and CSS Grid, ensuring compatibility across various screen sizes (desktop, tablet, and mobile). Animations and transitions were also implemented to provide a smooth and modern user experience. JavaScript was used to add interactivity: DOM manipulation, interactive effects, smooth scrolling between sections, and conditional logic for certain features. The code is cleanly organized and follows web development best practices, such as separation of concerns, readability, and proper commenting. This portfolio was created to showcase my technical skills, highlight the projects I’ve completed, and serve as a professional online presence for job applications."
     },
     "project8": {
       "title": "Stagelink Project",
+      "description": "P"
+    },
+    "project9": {
+      "title": "Guest Wifi Plugin",
+      "description": "The Guest Wifi plugin is an extension for GLPI 10.x that facilitates the management of temporary Wi-Fi access for visitors within an organization. It offers a clear and intuitive interface for creating, tracking, and managing guest accounts, with automatic validation for long-term access.\n\n<strong>Main features:</strong>\n• Creation and management of guest Wi-Fi accounts\n• Automatic assignment of credentials\n• Ticket validation for long-term access\n• Interface accessible from the Guest Wifi menu\n• Access control through GLPI groups\n• Guest localization based on GLPI sites\n• Usage statistics\n\n<strong>Technical requirements:</strong>\n• GLPI 10.x or higher\n• PHP 7.4 minimum\n• Administration rights on GLPI\n\n<strong>Installation:</strong>\nInstallation is done by downloading the plugin archive, extracting it to the GLPI plugins folder, and then activating it from the Configuration > Plugins menu in the administration interface.\n\n<strong>Configuration:</strong>\nOnce installed, parameters such as the authorized managers group and the threshold of days for access validation need to be configured. General configuration is done via the Guest Wifi > Configuration menu.\n\n<strong>Usage:</strong>\nTo add a guest, simply access the Guest Wifi > Add a guest menu, fill in the necessary information, and validate. Guest management is done from the Guest List, where you can check statuses, filter results, or remove a guest.\n\n<strong>Security:</strong>\nOnly users belonging to the configured managers group have access to the plugin. Wi-Fi credentials are assigned securely, and extended access requires validation through the ticket system."
+    },
+    "project10": {
+      "title": "CET Plugin",
+      "description": "P"
+    },
+    "project11": {
+      "title": "Assystem Portal",
       "description": "P"
     }
   },

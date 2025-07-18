@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed, onMounted, onUnmounted } from "vue";
 import { useI18n } from "vue-i18n";
 import GameOfLife from "./GameOfLife.vue";
 
@@ -10,6 +10,31 @@ const getLocalizedProjectTitle = (projectId) => {
   return t(`projects.project${projectId}.title`) || "";
 };
 
+// État pour suivre le thème actuel
+const isDarkMode = ref(false);
+
+// Mettre à jour l'état du thème
+const updateThemeState = () => {
+  isDarkMode.value = document.documentElement.getAttribute('data-theme') === 'dark';
+};
+
+// Observer les changements de thème
+onMounted(() => {
+  // Initialiser l'état du thème
+  updateThemeState();
+  
+  // Configurer l'observateur pour détecter les changements de thème
+  const observer = new MutationObserver(updateThemeState);
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['data-theme']
+  });
+  
+  // Nettoyer l'observateur lors du démontage
+  onUnmounted(() => {
+    observer.disconnect();
+  });
+});
 
 // Créer un tableau de projets pour vue3-masonry
 const projects = ref([
@@ -51,6 +76,21 @@ const projects = ref([
     id: 8,
     image: "/img/Stagelink.png",
     tech: ["/img/competences/php.svg", "/img/competences/CSS.svg", "/img/competences/MySQL.svg"]
+  },
+  {
+    id: 9,
+    get image() { return isDarkMode.value ? "/img/guest-wifi.svg" : "/img/dark-guest-wifi.svg"; },
+    tech: ["/img/competences/php.svg", "/img/competences/CSS.svg", "/img/competences/MySQL.svg"]
+  },
+  {
+    id: 10,
+    get image() { return isDarkMode.value ? "/img/CET.svg" : "/img/Dark-cet.svg"; },
+    tech: ["/img/competences/php.svg", "/img/competences/CSS.svg", "/img/competences/MySQL.svg"]
+  },
+  {
+    id: 11,
+    image: "/img/portail-assystem.png",
+    tech: ["/img/competences/Vue.js.svg", "/img/competences/Microsoft_.NET_logo.svg", "/img/competences/CSS.svg", "/img/competences/Postgresql.svg"]
   },
 ]);
 </script>

@@ -118,6 +118,31 @@
             </svg>
             {{ $t("projects.downloadCode") }}
           </a>
+
+          <a
+            v-if="project.siteUrl"
+            :href="project.siteUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-button site-button"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+            {{ $t("projects.visitSite") }}
+          </a>
         </div>
       </div>
 
@@ -162,7 +187,7 @@ const projectsList = ref([
     image: "/img/illustration.png",
     tech: ["/img/competences/python.svg"],
     description:
-      "Ce projet vise à développer une solution garantissant la communication en zones sans réseau, comme celles où les ondes sont bloquées. Suite à l'infiltration de l'agent K57, capturé dans une base de cyberpirates inaccessible aux méthodes classiques, l'objectif est d'éviter que de telles situations se reproduisent en concevant une technologie adaptée à ces environnements critiques. Comment ça fonctionne ? L'agent parle dans un micro, où le son est converti en un signal qui varie selon ce qu'il dit et la manière dont il le dit. Ce signal est caractérisé par son intensité, sa fréquence et son amplitude. Ce signal est ensuite transmis par un émetteur sur une fréquence inaudible, ce qui permet d'envoyer des messages sans risque d'être détecté. L'agent chargé de l'écoute intercepte ce signal, le décode, et retranscrit la voix et le message de l'émetteur. Pour analyser le signal sonore, il est d'abord converti en signal électrique, dont la tension évolue en synchronisation avec le signal sonore et partage la même période Cette méthode permet non seulement de retranscrire le message, mais aussi de capter les émotions exprimées au moment de l'enregistrement, en observant les variations des différentes courbes.",
+      "/",
     github: "",
     hasDownload: true,
     downloadFile: "/downloads/Escape-no-game.ipynb",
@@ -172,7 +197,7 @@ const projectsList = ref([
     image: "/img/New-life.svg",
     tech: ["/img/competences/next.svg", "/img/competences/CSS.svg"],
     description:
-      "Application web moderne développée avec Next.js et CSS avancé.",
+      "/",
     github: "https://github.com/username/new-life",
     hasDownload: false,
   },
@@ -181,7 +206,7 @@ const projectsList = ref([
     image: "/img/bdd.png",
     tech: ["/img/competences/MySQL.svg"],
     description:
-      "Dans notre projet le ministère de l'Écologie a fait appel à notre entreprise, DATA-X, composée des ingénieurs Maxime, Augustin, Evan et dirigée par la cheffe de projet Coline, pour développer un système de gestion des données sur la qualité de l'air autour des dix plus grandes villes françaises. Les agences météorologiques locales collectent ces données à l’aide de capteurs, mais leurs méthodes de stockage diffèrent. Le client souhaite donc une base de données relationnelle fiable pour centraliser et exploiter ces informations. Le projet inclut la gestion des agences et de leur personnel, le traitement des données sur la qualité de l'air, ainsi que la génération de rapports. Des exemples fournis par le client guideront la conception de cette base de données. Comment ça fonctionne ?Nous avons commencé par élaborer le dictionnaire de données, le modèle conceptuel (MCD), le modèle logique, le modèle physique, ainsi que les arbres algébriques des requêtes. Cela nous a permis de structurer et d’organiser clairement tous les éléments nécessaires.",
+      "/",
     github: "",
     hasDownload: false,
   },
@@ -190,7 +215,7 @@ const projectsList = ref([
     image: "/img/strongbox.svg",
     tech: ["/img/competences/C++.svg", "/img/competences/Arduino.svg"],
     description:
-      "Mise en situation: Suite à plusieurs incidents de détournements de matériel, une agence d'espionnage a sollicité nos services pour renforcer de manière significative son système de sécurité. L'objectif principal est de protéger les données sensibles et de prévenir tout accès non autorisé, en particulier en ce qui concerne la création d'un prototype de nouvelle génération. Ce dernier est destiné à être équipé de mécanismes d'authentification plus avancés et efficaces. Notre mission consiste donc à concevoir et mettre en place des solutions de sécurité robustes afin d'assurer l'intégrité du prototype et de garantir la confidentialité des informations stratégiques de l'agence d'espionnage. Comment ça fonctionne ? Le système est un dispositif d'authentification doté de cinq mécanismes de sécurité distincts, chacun correspondant à un niveau de protection spécifique.",
+      "/",
     github: "",
     hasDownload: true,
     downloadFile: "/downloads/strongbox.ino",
@@ -199,7 +224,7 @@ const projectsList = ref([
     id: 5,
     tech: ["/img/competences/C++.svg", "/img/competences/C.svg"],
     description:
-      "Le Jeu de la Vie est un automate cellulaire fascinant créé par le mathématicien John Conway en 1970. Ce projet est une implémentation interactive qui permet d'explorer les motifs émergents et les comportements complexes qui peuvent naître de règles très simples.<br><br>Il a été réalisé en moins d'une semaine dans le cadre d'un travail en groupe de deux personnes, en utilisant la programmation orientée objet (POO) avec le langage C++.<br><br>Le fonctionnement du jeu repose sur quelques règles simples :<br>- Une cellule morte entourée exactement de trois voisines vivantes devient vivante<br>- Une cellule vivante reste en vie si elle a deux ou trois voisines vivantes<br>- Elle meurt de solitude si elle a moins de deux voisines vivantes<br>- Elle meurt de surpopulation si elle en a plus de trois<br><br>Le jeu s'effectue sur une grille bidimensionnelle, chaque cellule étant influencée par ses huit voisines adjacentes. Deux modes d'exécution sont disponibles : un mode console et un mode graphique. Ce dernier offre la possibilité d'interagir directement avec la grille, en ajoutant ou supprimant des cellules par simple clic, et de régler la vitesse de simulation à l'aide des touches '&lt;' et '&gt;'.<br><br>Une fonctionnalité supplémentaire permet d'activer le mode torique, dans lequel les bords de la grille sont connectés entre eux, comme si la grille était repliée sur elle-même. Enfin, des cellules obstacles peuvent être placées sur la grille ; celles-ci restent figées et ne subissent aucune évolution au fil des itérations.",
+      "/",
     github: "https://github.com/Lucacist/jeu-de-Conway-projet",
     hasDownload: false,
   },
@@ -208,7 +233,7 @@ const projectsList = ref([
     image: "/img/formation-tel-tab.png",
     tech: ["/img/competences/React.svg", "/img/competences/nodejs.svg"],
     description:
-      "Plateforme de formation en ligne développée avec React et Node.js.",
+      "/",
     github: "",
     hasDownload: true,
     downloadFile: "/downloads/formation-site.zip",
@@ -221,9 +246,11 @@ const projectsList = ref([
       "/img/competences/CSS.svg",
       "/img/competences/javascript.svg",
     ],
-    description: "Mon précédent portfolio créé avec HTML, CSS et JavaScript.",
+    description:
+      "/",
     github: "https://github.com/username/old-portfolio",
     hasDownload: false,
+    siteUrl: "https://lucacist.github.io/Portfolio/src/Home.html",
   },
   {
     id: 8,
@@ -234,8 +261,44 @@ const projectsList = ref([
       "/img/competences/MySQL.svg",
     ],
     description:
-      "Plateforme de formation en ligne développée avec React et Node.js.",
+      "/",
     github: "https://github.com/Lucacist/StageLinkV1",
+    hasDownload: false,
+  },
+  {
+    id: 9,
+    image: "/img/guest_wifi.png",
+    tech: [
+      "/img/competences/php.svg",
+      "/img/competences/CSS.svg",
+      "/img/competences/MySQL.svg",
+    ],
+    description: "/",
+    github: "",
+    hasDownload: false,
+  },
+  {
+    id: 10,
+    image: "",
+    tech: [
+      "/img/competences/php.svg",
+      "/img/competences/CSS.svg",
+      "/img/competences/MySQL.svg",
+    ],
+    description: "/",
+    github: "",
+    hasDownload: false,
+  },
+  {
+    id: 11,
+    image: "",
+    tech: [
+      "/img/competences/php.svg",
+      "/img/competences/CSS.svg",
+      "/img/competences/MySQL.svg",
+    ],
+    description: "/",
+    github: "",
     hasDownload: false,
   },
 ]);
@@ -387,7 +450,8 @@ onMounted(() => {
 }
 
 .github-button svg,
-.download-button svg {
+.download-button svg,
+.site-button svg {
   width: 20px;
   height: 20px;
 }
