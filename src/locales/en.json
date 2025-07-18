@@ -13,6 +13,23 @@
       "tagline": "Discover my projects and professional journey",
       "viewProjects": "View my projects",
       "downloadCV": "Download my CV"
+    },
+    "propositions": {
+      "title": "My Services",
+      "subtitle": "I offer tailored solutions for your digital needs",
+      "webDev": {
+        "title": "Web Development",
+        "description": "Creation of modern, responsive websites optimized for search engines."
+      },
+      "appDev": {
+        "title": "Applications",
+        "description": "Development of custom web and mobile applications according to your needs."
+      },
+      "plugins": {
+        "title": "Plugins & Extensions",
+        "description": "Creation of plugins and extensions to enhance the functionality of your platforms."
+      },
+      "contactMe": "Contact Me"
     }
   },
   "projects": {

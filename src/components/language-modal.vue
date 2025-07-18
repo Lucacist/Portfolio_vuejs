@@ -109,7 +109,7 @@ span {
 
 .flag {
   font-weight: bold;
-  color: var(--primary-color);
+  color: var(--secondary-color);
   transition: color 0.3s ease;
 }
 

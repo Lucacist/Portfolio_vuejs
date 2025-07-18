@@ -1,7 +1,8 @@
 :root {
   /* Couleurs du thème clair (par défaut) */
   --primary-color: #aae8ff73;
-  --primary-color-hover: #62d5ff;
+  --secondary-color: #69d7ff;
+  --primary-color-hover: #3bcbff;
   --text-color: #000;
   --text-color-light: #6b7280;
   --background-color: #ffffff;
@@ -17,6 +18,7 @@
 [data-theme="dark"] {
   /* Couleurs du thème sombre */
   --primary-color: #aae8ff73;
+  --secondary-color: #aae8ff;
   --primary-color-hover: #97e3ff;
   --text-color: #f9fafb;
   --text-color-light: #d1d5db;
