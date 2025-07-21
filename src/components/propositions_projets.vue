@@ -6,9 +6,9 @@
         </div>
         
         <div class="services-container">
-            <div class="service-card">
+            <div class="service-card red">
                 <div class="icon-container">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="service-icon red">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
                     </svg>
                 </div>
@@ -16,9 +16,9 @@
                 <p>{{ t("home.propositions.webDev.description") }}</p>
             </div>
             
-            <div class="service-card">
+            <div class="service-card orange">
                 <div class="icon-container">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="service-icon orange">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
                     </svg>
                 </div>
@@ -26,9 +26,9 @@
                 <p>{{ t("home.propositions.appDev.description") }}</p>
             </div>
             
-            <div class="service-card">
+            <div class="service-card yellow">
                 <div class="icon-container">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="service-icon yellow">
                         <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
                     </svg>
                 </div>
@@ -78,13 +78,31 @@ const { t } = useI18n();
 }
 
 .service-card {
-    background-color: var(--card-bg);
     border-radius: 12px;
     padding: 2rem;
     width: 300px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
     text-align: center;
+    backdrop-filter: blur(6px);
+    background-color: rgba(0, 0, 0, 0.911); /* overlay sombre */
+}
+
+.service-card.red {
+    background-color: var(--red-light);
+    border-color: var(--red);
+    color: var(--red-dark);
+}
+
+.service-card.orange {
+    background-color: var(--orange-light);
+    border-color: var(--orange);
+    color: var(--orange-dark);
+}
+
+.service-card.yellow {
+    background-color: var(--yellow-light);
+    border-color: var(--yellow);
+    color: var(--yellow-dark);
 }
 
 .service-card:hover {
@@ -106,7 +124,18 @@ const { t } = useI18n();
 .service-icon {
     width: 35px;
     height: 35px;
-    color: var(--secondary-color);
+}
+
+.service-icon.red {
+    color: var(--red-dark);
+}
+
+.service-icon.orange {
+    color: var(--orange-dark);
+}
+
+.service-icon.yellow {
+    color: var(--yellow-dark);
 }
 
 .service-card h3 {

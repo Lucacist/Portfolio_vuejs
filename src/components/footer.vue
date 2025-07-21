@@ -105,13 +105,18 @@ const currentYear = new Date().getFullYear();
 
 @media (max-width: 768px) {
   .footer-content {
-    flex-direction: column;
     gap: 2rem;
   }
   
   .footer-links {
-    flex-direction: column;
     gap: 2rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .footer-links {
+    gap: 2rem;
+    flex-direction: column;
   }
 }
 </style>

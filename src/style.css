@@ -13,6 +13,15 @@
   --header-bg: rgba(255, 255, 255, 0.9);
   --card-bg: #f3efef;
   --scrollbar-color: #dde2ec;
+  --red-light: #ffe5e5;
+  --red: #ff4d4f;
+  --red-dark: #b8001e;
+  --orange-light: #fff1e6;
+  --orange: #fa8c16;
+  --orange-dark: #b65d00;
+  --yellow-light: #fffbe6;
+  --yellow: #fadb14;
+  --yellow-dark: #bfa600;
 }
 
 [data-theme="dark"] {
@@ -30,6 +39,18 @@
   --header-bg: rgba(17, 24, 39, 0.9);
   --card-bg: #1f2937;
   --scrollbar-color: #484a4d;
+  --red-light: #8c5a5a;   /* rouge clair, un peu plus saturé */
+  --red: #b05e5e;         /* rouge moyen */
+  --red-dark: #7d4141;    /* rouge foncé */
+
+  --orange-light: #8c705a; /* orange clair */
+  --orange: #b27b59;       /* orange moyen */
+  --orange-dark: #7d563a;  /* orange foncé */
+
+  --yellow-light: #8c8b5a; /* jaune clair */
+  --yellow: #b4b55a;       /* jaune moyen */
+  --yellow-dark: #7d7a3a;  /* jaune foncé */
+
 }
 
 * {
@@ -43,7 +64,8 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   line-height: 1.6;
   color: var(--text-color);
   background-color: var(--background-color);
@@ -58,7 +80,12 @@ body {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin-top: 0;
   line-height: 1.2;
 }
@@ -81,7 +108,6 @@ button {
   cursor: pointer;
   border: none;
   background-color: transparent;
-
 }
 
 li {

@@ -16,16 +16,33 @@
         />
       </svg>
     </button>
-
-    <div class="carousel-content" ref="carouselContent">
-      <div class="carousel-item" v-for="(skill, index) in skills" :key="index">
-        <div class="card">
-          <div class="card-content">
-            <img :src="getSkillImagePath(skill)" :alt="getSkillName(skill)" />
-            <span class="skill-name">{{ getSkillName(skill) }}</span>
+    
+    <div class="carousel-container">
+      <div class="fade-overlay left"></div>
+      <div class="carousel-content" ref="carouselContent">
+        <div class="carousel-track">
+          <!-- Premier ensemble d'éléments (pour l'effet infini) -->
+          <div class="carousel-item" v-for="(skill, index) in skills" :key="'start-'+index">
+            <div class="card">
+              <div class="card-content">
+                <img :src="getSkillImagePath(skill)" :alt="getSkillName(skill)" />
+                <span class="skill-name">{{ getSkillName(skill) }}</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Deuxième ensemble d'éléments (pour l'effet infini) -->
+          <div class="carousel-item" v-for="(skill, index) in skills" :key="'end-'+index">
+            <div class="card">
+              <div class="card-content">
+                <img :src="getSkillImagePath(skill)" :alt="getSkillName(skill)" />
+                <span class="skill-name">{{ getSkillName(skill) }}</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+      <div class="fade-overlay right"></div>
     </div>
 
     <button class="nav next" @click="next">
@@ -48,7 +65,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted, nextTick } from "vue";
 
 const skills = [
   "Adobe_XD.svg",
@@ -72,10 +89,13 @@ const skills = [
   "php.svg",
   "Postgresql.svg",
   "python.svg",
+  
 ];
 
 const carouselContent = ref(null);
 const isDarkTheme = ref(false);
+const isScrolling = ref(false);
+const animationId = ref(null);
 
 // Fonction pour mettre à jour l'état du thème
 function updateThemeState() {
@@ -89,14 +109,20 @@ function updateThemeState() {
 let observer = null;
 
 onMounted(() => {
-  // Initialiser l'état du thème
-  updateThemeState();
+  // S'assurer que le composant est complètement monté avant d'initialiser
+  nextTick(() => {
+    // Initialiser l'état du thème
+    updateThemeState();
+  });
 
   // Configurer l'observateur de mutations pour détecter les changements de thème
-  if (typeof MutationObserver !== "undefined") {
+  if (typeof MutationObserver !== "undefined" && typeof document !== "undefined") {
     observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
-        if (mutation.attributeName === "data-theme") {
+        if (
+          mutation.type === "attributes" &&
+          mutation.attributeName === "data-theme"
+        ) {
           updateThemeState();
         }
       });
@@ -110,11 +136,24 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  // Nettoyer l'observateur lors du démontage du composant
+  // Nettoyer les ressources
   if (observer) {
     observer.disconnect();
+    observer = null;
   }
+  
+  // Arrêter l'animation de défilement automatique
+  stopAutoScroll();
 });
+
+// Fonction pour arrêter proprement l'animation
+function stopAutoScroll() {
+  if (animationId.value) {
+    cancelAnimationFrame(animationId.value);
+    animationId.value = null;
+  }
+  isScrolling.value = false;
+}
 
 function getSkillName(filename) {
   return filename.replace(".svg", "");
@@ -136,21 +175,69 @@ function getSkillImagePath(filename) {
 }
 
 function next() {
-  if (carouselContent.value) {
-    carouselContent.value.scrollBy({
-      left: 200,
-      behavior: "smooth",
-    });
+  // Pause l'animation CSS
+  const track = document.querySelector('.carousel-track');
+  if (track && !isScrolling.value) {
+    isScrolling.value = true;
+    
+    // Mettre en pause l'animation
+    track.style.animationPlayState = 'paused';
+    
+    // Obtenir la position actuelle
+    const currentTransform = getComputedStyle(track).transform;
+    const matrix = new DOMMatrixReadOnly(currentTransform);
+    const currentX = matrix.m41; // La valeur translateX actuelle
+    
+    // Déplacer manuellement
+    track.style.transform = `translateX(${currentX - 300}px)`;
+    
+    // Reprendre l'animation après un délai
+    setTimeout(() => {
+      track.style.animationPlayState = 'running';
+      track.style.transform = ''; // Réinitialiser la transformation manuelle
+      isScrolling.value = false;
+    }, 800);
   }
 }
 
 function prev() {
-  if (carouselContent.value) {
-    carouselContent.value.scrollBy({
-      left: -200,
-      behavior: "smooth",
-    });
+  // Pause l'animation CSS
+  const track = document.querySelector('.carousel-track');
+  if (track && !isScrolling.value) {
+    isScrolling.value = true;
+    
+    // Mettre en pause l'animation
+    track.style.animationPlayState = 'paused';
+    
+    // Obtenir la position actuelle
+    const currentTransform = getComputedStyle(track).transform;
+    const matrix = new DOMMatrixReadOnly(currentTransform);
+    const currentX = matrix.m41; // La valeur translateX actuelle
+    
+    // Déplacer manuellement
+    track.style.transform = `translateX(${currentX + 300}px)`;
+    
+    // Reprendre l'animation après un délai
+    setTimeout(() => {
+      track.style.animationPlayState = 'running';
+      track.style.transform = ''; // Réinitialiser la transformation manuelle
+      isScrolling.value = false;
+    }, 800);
   }
+}
+
+// Fonction pour vérifier et ajuster le défilement infini
+// Note: Cette fonction n'est plus utilisée avec l'animation CSS
+function checkInfiniteScroll() {
+  // Animation gérée par CSS maintenant
+  return;
+}
+
+// Fonction pour démarrer le défilement automatique
+// Note: Cette fonction n'est plus utilisée car l'animation est gérée par CSS
+function startAutoScroll() {
+  // Animation gérée par CSS maintenant
+  return;
 }
 </script>
 
@@ -161,22 +248,79 @@ function prev() {
   overflow: hidden;
 }
 
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
 .carousel-content {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  scroll-behavior: smooth;
+  overflow-x: hidden; /* Empêcher le défilement manuel */
   padding: 2rem;
   scrollbar-width: none;
+  -ms-overflow-style: none;
+  user-select: none; /* Empêcher la sélection de texte */
+  touch-action: none; /* Désactiver les gestes tactiles */
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1rem;
+  width: fit-content; /* S'assurer que le track prend toute la largeur nécessaire */
+  animation: autoScroll 60s linear infinite; /* Animation CSS directe */
+}
+
+/* Pause l'animation au survol */
+.carousel-content:hover .carousel-track {
+  animation-play-state: paused;
+}
+
+@keyframes autoScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-120px * 21 - 1rem * 21)); /* Largeur totale de tous les éléments */
+  }
 }
 
 .carousel-content::-webkit-scrollbar {
   display: none;
 }
 
+/* Overlays pour l'effet de fondu sur les côtés */
+.fade-overlay {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 150px; /* Largeur du fondu */
+  z-index: 10; /* Augmenter le z-index pour s'assurer que les overlays sont au-dessus du contenu */
+  pointer-events: none;
+}
+
+.fade-overlay.left {
+  left: 0;
+  background: linear-gradient(to right, var(--background-color) 0%, var(--background-color) 20%, transparent 100%);
+}
+
+.fade-overlay.right {
+  right: 0;
+  background: linear-gradient(to left, var(--background-color) 0%, var(--background-color) 20%, transparent 100%);
+}
+
+/* Styles spécifiques au thème sombre */
+.dark-theme .fade-overlay.left {
+  background: linear-gradient(to right, var(--background-color) 0%, var(--background-color) 20%, transparent 100%);
+}
+
+.dark-theme .fade-overlay.right {
+  background: linear-gradient(to left, var(--background-color) 0%, var(--background-color) 20%, transparent 100%);
+}
+
 .carousel-item {
   flex: 0 0 auto;
-  width: 100px;
+  width: 120px;
+  scroll-snap-align: center; /* Améliorer le comportement de défilement */
 }
 
 .card {
