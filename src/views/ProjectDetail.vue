@@ -26,6 +26,7 @@
         </div>
         <h1 class="project-title">
           {{ getLocalizedProjectTitle(project.id) }}
+          <span v-if="project.inProgress" class="in-progress-badge">{{ $t("projects.inProgress") }}</span>
         </h1>
 
         <div class="project-image">
@@ -198,8 +199,10 @@ const projectsList = ref([
     tech: ["/img/competences/next.svg", "/img/competences/CSS.svg"],
     description:
       "/",
-    github: "https://github.com/username/new-life",
+    github: "https://github.com/Lucacist/new-life-next",
     hasDownload: false,
+    siteUrl: "https://new-life-app.netlify.app",
+    inProgress: true,
   },
   {
     id: 3,
@@ -231,12 +234,13 @@ const projectsList = ref([
   {
     id: 6,
     image: "/img/formation-tel-tab.png",
-    tech: ["/img/competences/React.svg", "/img/competences/nodejs.svg"],
+    tech: ["/img/competences/React.svg", "/img/competences/nodejs.svg","/img/competences/Postgresql.svg"],
     description:
       "/",
     github: "",
     hasDownload: true,
     downloadFile: "/downloads/formation-site.zip",
+    inProgress: true,
   },
   {
     id: 7,
@@ -321,6 +325,18 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.in-progress-badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  margin-left: 1rem;
+  vertical-align: middle;
+}
+
 .project-detail {
   padding: 2rem 1rem;
   height: auto;

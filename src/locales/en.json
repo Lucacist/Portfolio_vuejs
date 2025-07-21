@@ -43,16 +43,17 @@
     "downloadCode": "Download code",
     "viewOnGithub": "View on GitHub",
     "visitSite": "Visit Site",
-    "backToProjects": "Back to projects",
-    "projectNotFound": "Project not found",
+    "backToProjects": "Back to Projects",
+    "projectNotFound": "Project Not Found",
     "projectDoesNotExist": "The project you are looking for does not exist.",
+    "inProgress": "In Development",
     "project1": {
       "title": "Escape no Game Project",
       "description": "This project aims to develop a solution ensuring communication in areas without network coverage, such as those where waves are blocked. Following the infiltration of agent K57, captured in a cyber-pirate base inaccessible by conventional methods, the objective is to prevent such situations from recurring by designing technology adapted to these critical environments. How does it work? The agent speaks into a microphone, where the sound is converted into a signal that varies according to what they say and how they say it. This signal is characterized by its intensity, frequency, and amplitude. The signal is then transmitted by a transmitter on an inaudible frequency, allowing messages to be sent without risk of detection. The listening agent intercepts this signal, decodes it, and transcribes the voice and message of the transmitter. To analyze the sound signal, it is first converted into an electrical signal, whose voltage evolves in synchronization with the sound signal and shares the same period. This method not only allows the message to be transcribed but also captures the emotions expressed at the time of recording by observing variations in the different curves."
     },
     "project2": {
       "title": "New Life Project",
-      "description": "Modern web application developed with Next.js and advanced CSS."
+      "description": "The app \"New Life\" is an innovative mobile application designed to support users in their journey to quit smoking. With an intuitive interface and personalized tools, it turns each smoke-free day into a measurable and motivating victory.\n\n<strong>Main Features:</strong>\n• Personalized daily progress tracking\n• Real-time savings calculator\n• Rewards system based on savings achieved\n• Access to tailored advice and craving management strategies\n• Visualization of achievements and statistics\n• Information based on WHO data (2020)\n• Informative section on inequalities and risks related to tobacco\n\n<strong>Technical Requirements:</strong>\n• Android or iOS smartphone\n• Internet connection for data synchronization\n• Local storage for personal data and statistics\n\n<strong>Installation:</strong>\nThe app will be available for free download from the Google Play Store and the App Store. Once installed, creating a personal account allows users to start tracking from their first smoke-free day.\n\n<strong>Configuration:</strong>\nDuring the first launch, users set up their profile (type of tobacco used, frequency, cost, personal motivation). This data is used to personalize advice, savings, and supportive messages displayed in the app.\n\n<strong>Usage:</strong>\nEach day, users can:\n• Track their elapsed smoke-free time\n• View their cumulative financial savings\n• Access personalized advice\n• Log cravings or relapses\n• Plan personal rewards\n\nA \"See More\" section allows users to consult articles, statistics, and inspiring testimonials.\n\n<strong>Security:</strong>\nUser data is stored locally and/or synchronized securely. No sensitive data is shared without explicit consent. The app complies with current GDPR regulations."
     },
     "project3": {
       "title": "Database Project",
@@ -88,7 +89,7 @@
     },
     "project8": {
       "title": "Stagelink Project",
-      "description": "P"
+      "description": "This project involves the development of a web application designed to centralize internship offers for CESI students. The goal is to simplify the internship search process by gathering all relevant offers and registering partner company data, while providing management tools for different user profiles (students, program coordinators, administrators).\n\n<strong>Main Features:</strong>\n• Role-based authentication (student, coordinator, administrator)\n• Full company management: create, edit, evaluate, delete\n• Internship offer management: search, create, edit, delete, statistics\n• Student and coordinator account management: create, edit, delete\n• Add/remove offers to a wish-list\n• Apply to offers with CV upload and cover letter submission\n• View ongoing applications\n• Dashboard with offer and application statistics for admins\n\n<strong>Technical Requirements:</strong>\n• Apache server with multiple vhost configuration\n• Required languages: HTML5, CSS3, JavaScript, PHP (OOP)\n• Relational database (MySQL, PostgreSQL, etc.)\n• Mandatory MVC architecture\n• Backend template engine usage\n• Use of foreign keys in the database\n• Responsive design for compatibility with all screen sizes\n• Form validation on both client and server sides\n• CMS usage is strictly prohibited\n\n<strong>Installation:</strong>\nThe application will be deployed on an Apache server configured with separate vhosts—one for static content (images, CSS, JS) and another for the dynamic PHP application. The database will be initialized with all necessary tables and relationships.\n\n<strong>Configuration:</strong>\nDuring setup, user roles are defined in a permission matrix. Each user logs in via a secure interface (email/password). Sensitive data is protected following modern security standards (secure cookies, encrypted data, SQL injection protection).\n\n<strong>Usage:</strong>\n• Students can browse and view internship offers, add them to their wish-list, apply, and track their progress.\n• Program coordinators can manage accounts, track student applications, and oversee student activity.\n• Administrators have full access to manage users, offers, and companies.\n\n<strong>Security:</strong>\nThe application complies with GDPR standards. User data is stored securely and only accessible based on assigned permissions. No sensitive information is stored in plain text. Security measures are in place to prevent SQL injection and ensure authentication reliability."
     },
     "project9": {
       "title": "Guest Wifi Plugin",
@@ -96,7 +97,7 @@
     },
     "project10": {
       "title": "CET Plugin",
-      "description": "P"
+      "description": "p"
     },
     "project11": {
       "title": "Assystem Portal",
