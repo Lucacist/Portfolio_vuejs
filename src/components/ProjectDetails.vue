@@ -1,6 +1,6 @@
 <template>
   <div v-if="projectId === 4" class="project-additional-details">
-    <h3>{{ $t('projects.details') }}</h3>
+    <h3>{{ $t("projects.details") }}</h3>
 
     <div v-if="projectId === 4" class="strongbox-details">
       <div class="ligne1">
@@ -19,10 +19,12 @@
                   fill="white"
                 />
               </svg>
-              <div class="texte">{{ $t('projects.project4.securityFeatures.scanDigitalTitle') }}</div>
+              <div class="texte">
+                {{ $t("projects.project4.securityFeatures.scanDigitalTitle") }}
+              </div>
             </div>
             <div class="card-back">
-              <p>{{ $t('projects.project4.securityFeatures.scanDigital') }}</p>
+              <p>{{ $t("projects.project4.securityFeatures.scanDigital") }}</p>
             </div>
           </div>
         </div>
@@ -47,10 +49,12 @@
                   fill="white"
                 />
               </svg>
-              <div class="texte">{{ $t('projects.project4.securityFeatures.scanRetinalTitle') }}</div>
+              <div class="texte">
+                {{ $t("projects.project4.securityFeatures.scanRetinalTitle") }}
+              </div>
             </div>
             <div class="card-back">
-              <p>{{ $t('projects.project4.securityFeatures.scanRetinal') }}</p>
+              <p>{{ $t("projects.project4.securityFeatures.scanRetinal") }}</p>
             </div>
           </div>
         </div>
@@ -69,10 +73,12 @@
                   fill="white"
                 />
               </svg>
-              <div class="texte">{{ $t('projects.project4.securityFeatures.cardIDTitle') }}</div>
+              <div class="texte">
+                {{ $t("projects.project4.securityFeatures.cardIDTitle") }}
+              </div>
             </div>
             <div class="card-back">
-              <p>{{ $t('projects.project4.securityFeatures.cardID') }}</p>
+              <p>{{ $t("projects.project4.securityFeatures.cardID") }}</p>
             </div>
           </div>
         </div>
@@ -97,10 +103,12 @@
                   fill="white"
                 />
               </svg>
-              <div class="texte">{{ $t('projects.project4.securityFeatures.dynamicCodeTitle') }}</div>
+              <div class="texte">
+                {{ $t("projects.project4.securityFeatures.dynamicCodeTitle") }}
+              </div>
             </div>
             <div class="card-back">
-              <p>{{ $t('projects.project4.securityFeatures.dynamicCode') }}</p>
+              <p>{{ $t("projects.project4.securityFeatures.dynamicCode") }}</p>
             </div>
           </div>
         </div>
@@ -119,10 +127,12 @@
                   fill="white"
                 />
               </svg>
-              <div class="texte">{{ $t('projects.project4.securityFeatures.qaAuthTitle') }}</div>
+              <div class="texte">
+                {{ $t("projects.project4.securityFeatures.qaAuthTitle") }}
+              </div>
             </div>
             <div class="card-back">
-              <p>{{ $t('projects.project4.securityFeatures.qaAuth') }}</p>
+              <p>{{ $t("projects.project4.securityFeatures.qaAuth") }}</p>
             </div>
           </div>
         </div>
@@ -166,36 +176,103 @@
           </tr>
         </table>
         <div class="modele-agent">
-          <p>MA1: {{ $t('projects.project4.securityFeatures.qaAuthTitle') }}</p>
-          <p>MA2: {{ $t('projects.project4.securityFeatures.dynamicCodeTitle') }}</p>
-          <p>MA3: {{ $t('projects.project4.securityFeatures.scanRetinalTitle') }}</p>
-          <p>MA4: {{ $t('projects.project4.securityFeatures.scanDigitalTitle') }}</p>
-          <p>MA5: {{ $t('projects.project4.securityFeatures.cardIDTitle') }}</p>
+          <p>MA1: {{ $t("projects.project4.securityFeatures.qaAuthTitle") }}</p>
+          <p>
+            MA2: {{ $t("projects.project4.securityFeatures.dynamicCodeTitle") }}
+          </p>
+          <p>
+            MA3: {{ $t("projects.project4.securityFeatures.scanRetinalTitle") }}
+          </p>
+          <p>
+            MA4: {{ $t("projects.project4.securityFeatures.scanDigitalTitle") }}
+          </p>
+          <p>MA5: {{ $t("projects.project4.securityFeatures.cardIDTitle") }}</p>
         </div>
       </div>
-      <img class="strongbox-image" src="/img/coffre-tinkercad.png" alt="schéma du coffre">
+      <img
+        class="strongbox-image"
+        src="/img/coffre-tinkercad.png"
+        alt="schéma du coffre"
+      />
     </div>
   </div>
   <div v-if="projectId === 3" class="project-additional-details">
-    <h3>{{ $t('projects.details') }}</h3>
+    <h3>{{ $t("projects.details") }}</h3>
 
     <div v-if="projectId === 3" class="strongbox-details">
-      <img class="strongbox-image" src="/img/MCD.webp" alt="MCD">
-      <img class="strongbox-image" src="/img/MLD.png" alt="MLD">
+      <img class="strongbox-image" src="/img/MCD.webp" alt="MCD" />
+      <img class="strongbox-image" src="/img/MLD.png" alt="MLD" />
+    </div>
+  </div>
+  <div v-if="projectId === 13" class="project-additional-details">
+    <h3>{{ $t("projects.details") }}</h3>
+
+    <div v-if="projectId === 13" class="strongbox-details">
+      <h3>{{ $t("projects.project13.composants") }}</h3>
+      <div class="ligne13">
+        <div 
+          v-for="card in project13Cards" 
+          :key="card.key"
+          class="card" 
+          @click="toggleFlip($event)"
+        >
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="texte">
+                {{ card.title }}
+              </div>
+              <img v-if="card.image" :src="card.image" :alt="card.title" class="card-image" />
+            </div>
+            <div class="card-back">
+              <p>{{ card.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="montage-explication">
+      <h3>{{ $t("projects.project13.montage") }}</h3>
+      <p>{{ $t("projects.project13.explication") }}</p>
+      </div>
+      <div class="montage">
+        <img class="strongbox-image" src="/img/projet13/piece1.webp" alt="montage" />
+        <img class="strongbox-image" src="/img/projet13/piece2.webp" alt="montage" />
+        <img class="strongbox-image" src="/img/projet13/piece3.webp" alt="montage" />
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
 import { useI18n } from "vue-i18n";
+import { computed } from "vue";
 
-const { t } = useI18n();
+const { t, locale } = useI18n();
 
-defineProps({
+const props = defineProps({
   projectId: {
     type: Number,
     required: true,
   },
+});
+
+const project13Cards = computed(() => {
+  // Récupérer les clés des cartes du projet 13
+  const cards = [];
+  
+  // Liste des cartes disponibles
+  const cardKeys = ['microcontroller', 'storage', 'rtc', 'sensors', 'rgb', 'buttons', 'gps', 'light', 'temp', 'humidity'];
+  
+  // Créer un tableau d'objets pour les cartes
+  cardKeys.forEach(key => {
+    cards.push({
+      key: key,
+      title: t(`projects.project13.cards.${key}.title`),
+      image: t(`projects.project13.cards.${key}.image`),
+      description: t(`projects.project13.cards.${key}.description`)
+    });
+  });
+  
+  return cards;
 });
 
 const toggleFlip = (event) => {
@@ -226,7 +303,7 @@ const toggleFlip = (event) => {
   height: 80%;
 }
 
-.ligne1 {
+.ligne1, .ligne13 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(1, auto);
@@ -286,6 +363,18 @@ const toggleFlip = (event) => {
 .texte {
   font-size: 1rem;
   color: var(--text-color);
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+.card-image {
+  max-width: 80%;
+  max-height: 100px;
+  margin-top: 1rem;
+  filter: var(--svg-filter);
 }
 
 .niveau {
@@ -338,6 +427,38 @@ td {
   border-radius: 8px;
 }
 
+.montage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.montage img {
+  max-width: 400px;
+  width: 80%;
+}
+
+.montage img:nth-child(1) {
+  transform: rotate(-6deg);
+}
+
+.montage img:nth-child(2) {
+  margin-top: -6rem;
+}
+
+.montage img:nth-child(3) {
+  margin-top: -6rem;
+}
+
+.montage-explication {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
 @media (max-width: 900px) {
   .niveau {
     flex-direction: column;
@@ -354,6 +475,10 @@ td {
   }
   .ligne1 > :nth-child(3) {
     grid-column: 1 / -1;
+  }
+  .ligne13 {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
   }
 }
 
@@ -372,14 +497,18 @@ td {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(2, auto);
   }
+  .ligne13 {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, auto);
+  }
 }
 
 @media (max-width: 500px) {
   .table-child {
     width: 250px;
   }
- td {
-  height: 30px;
-}
+  td {
+    height: 30px;
+  }
 }
 </style>

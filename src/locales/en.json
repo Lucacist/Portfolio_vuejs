@@ -109,7 +109,62 @@
     },
     "project13": {
       "title": "Weather station",
-      "description": "The \"Worldwide Weather Watcher\" project is an initiative launched by the International Agency for Meteorological Surveillance (AIVM), aiming to equip ocean surveillance vessels with embedded weather stations. The main goal is to measure environmental parameters that influence the formation of cyclones and other natural disasters.\n\n<strong>Background:</strong>\nSeveral maritime transport companies have agreed to install these stations on their vessels, provided they are simple, efficient, and operable by crew members. A user technical guide will be available.\n\n<strong>Selected Hardware:</strong>\n• Microcontroller: ATmega328 (Arduino)\n• Storage: SD card reader (SPI)\n• Real-time clock: RTC module (I2C)\n• Status indicator: RGB LED (2-wire)\n• User input: 2 push buttons (digital)\n\n<strong>Integrated Sensors:</strong>\n• Atmospheric pressure (I2C or SPI)\n• Air temperature (I2C or SPI)\n• Humidity (I2C or SPI)\n• GPS (UART)\n• Light intensity (analog)\n\n<strong>Planned Add-on Modules:</strong>\n• Water temperature (analog)\n• Ocean current strength (I2C)\n• Wind speed (I2C)\n• Fine particle concentration (2-wire)\n\n<strong>Learning Objectives:</strong>\n• Analyze, design, and structure an embedded system in critical environments\n• Integrate sensors and hardware components on a microcontroller\n• Deliver clear documentation for both users and project supervisors"
+      "description": "The \"Worldwide Weather Watcher\" project is an initiative led by the International Agency for Meteorological Vigilance (IAMV), aimed at equipping ocean surveillance vessels with embedded weather stations. The main objective is to measure critical environmental parameters contributing to the formation of cyclones or other natural disasters.\n\n<strong>Context:</strong>\nNumerous maritime transport companies have agreed to equip their vessels with these stations, provided they are simple to use, effective, and can be operated by a crew member. Technical documentation will be provided for this purpose.\n\n<strong>Selected Hardware:</strong>\n• Microcontroller: ATmega328 (Arduino)\n• Storage: SD Card Reader (SPI)\n• Real-time: RTC Clock (I2C)\n• Signaling: RGB LED (2 wires)\n• Interaction: 2 push buttons (digital)\n\n<strong>Integrated Sensors:</strong>\n• Atmospheric pressure (I2C or SPI)\n• Air temperature (I2C or SPI)\n• Hygrometry (I2C or SPI)\n• GPS (UART)\n• Brightness (analog)\n\n<strong>Planned Additional Modules:</strong>\n• Water temperature (analog)\n• Ocean current strength (I2C)\n• Wind force (I2C)\n• Fine particle rate (2 wires)\n\n<strong>Educational Objectives:</strong>\n• Analyze, design, and structure an embedded system in a critical environment\n• Implement sensors and hardware components on microcontroller\n• Provide clear documentation for the end user and supervisor",
+      "composants": "List of Components",
+      "cards": {
+        "microcontroller": {
+          "title": "1 Arduino UNO board",
+          "image": "/img/projet13/arduino.webp",
+          "description": "ref: Arduino UNO R3"
+        },
+        "storage": {
+          "title": "1 SD Card Shield for Arduino",
+          "image": "/img/projet13/shield.webp",
+          "description": "ref: SD Card Shield v4.3 07/23/2014"
+        },
+        "rtc": {
+          "title": "1 Base Shield for Arduino",
+          "image": "/img/projet13/base_shield.webp",
+          "description": "ref: Base Shield v2.1 08/31/2015"
+        },
+        "sensors": {
+          "title": "1 USB-A to USB-B cable",
+          "image": "/img/projet13/usb.webp",
+          "description": "ref: USB cable for Arduino Uno USB30CMARD"
+        },
+        "rgb": {
+          "title": "1 RGB LED",
+          "image": "/img/projet13/led.webp",
+          "description": "ref: Grove Chainable RGB LED v2.0"
+        },
+        "buttons": {
+          "title": "1 sensor with 2 buttons: green and red",
+          "image": "/img/projet13/btn.webp",
+          "description": "ref: Grove - Dual Button v1.0"
+        },
+        "gps": {
+          "title": "1 connector cable with one end as individual pins",
+          "image": "/img/projet13/connectiques.webp",
+          "description": "ref: DeLOCK Conversion IOT Grove 4-pin male to 4x female jumper 20 cm (86947)"
+        },
+        "light": {
+          "title": "1 RTC sensor",
+          "image": "/img/projet13/capteur.webp",
+          "description": "ref: RTC v1.2"
+        },
+        "temp": {
+          "title": "1 temperature, pressure and humidity sensor",
+          "image": "/img/projet13/temp.webp",
+          "description": "ref: BME280 WPSE335"
+        },
+        "humidity": {
+          "title": "1 light sensor",
+          "image": "/img/projet13/lumi.webp",
+          "description": "ref: Grove - Light Sensor v1.2 01/20/2016"
+        }
+      },
+      "montage": "Connections:",
+      "explication": ""
     }
   },
   "contact": {

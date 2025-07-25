@@ -109,7 +109,62 @@
     },
     "project13": {
       "title": "Station météo",
-      "description": "Le projet \"Worldwide Weather Watcher\" est une initiative portée par l'Agence Internationale pour la Vigilance Météorologique (AIVM), visant à équiper les navires de surveillance océanique avec des stations météo embarquées. L’objectif principal est de mesurer des paramètres environnementaux critiques contribuant à la formation de cyclones ou d’autres catastrophes naturelles.\n\n<strong>Contexte :</strong>\nDe nombreuses sociétés de transport maritime ont accepté d’équiper leurs navires avec ces stations, à condition qu’elles soient simples d’utilisation, efficaces et pilotables par un membre de l’équipage. Une documentation technique sera fournie à cet effet.\n\n<strong>Matériel sélectionné :</strong>\n• Microcontrôleur : ATmega328 (Arduino)\n• Stockage : Lecteur de carte SD (SPI)\n• Temps réel : Horloge RTC (I2C)\n• Signalisation : LED RGB (2 fils)\n• Interaction : 2 boutons poussoirs (numériques)\n\n<strong>Capteurs intégrés :</strong>\n• Pression atmosphérique (I2C ou SPI)\n• Température de l’air (I2C ou SPI)\n• Hygrométrie (I2C ou SPI)\n• GPS (UART)\n• Luminosité (analogique)\n\n<strong>Modules complémentaires prévus :</strong>\n• Température de l’eau (analogique)\n• Force du courant marin (I2C)\n• Force du vent (I2C)\n• Taux de particules fines (2 fils)\n\n<strong>Objectifs pédagogiques :</strong>\n• Analyser, concevoir et structurer un système embarqué en environnement critique\n• Mettre en œuvre des capteurs et composants matériels sur microcontrôleur\n• Fournir une documentation claire pour l’utilisateur et le superviseur final"
+      "description": "Le projet \"Worldwide Weather Watcher\" est une initiative portée par l'Agence Internationale pour la Vigilance Météorologique (AIVM), visant à équiper les navires de surveillance océanique avec des stations météo embarquées. L’objectif principal est de mesurer des paramètres environnementaux critiques contribuant à la formation de cyclones ou d’autres catastrophes naturelles.\n\n<strong>Contexte :</strong>\nDe nombreuses sociétés de transport maritime ont accepté d’équiper leurs navires avec ces stations, à condition qu’elles soient simples d’utilisation, efficaces et pilotables par un membre de l’équipage. Une documentation technique sera fournie à cet effet.\n\n<strong>Matériel sélectionné :</strong>\n• Microcontrôleur : ATmega328 (Arduino)\n• Stockage : Lecteur de carte SD (SPI)\n• Temps réel : Horloge RTC (I2C)\n• Signalisation : LED RGB (2 fils)\n• Interaction : 2 boutons poussoirs (numériques)\n\n<strong>Capteurs intégrés :</strong>\n• Pression atmosphérique (I2C ou SPI)\n• Température de l’air (I2C ou SPI)\n• Hygrométrie (I2C ou SPI)\n• GPS (UART)\n• Luminosité (analogique)\n\n<strong>Modules complémentaires prévus :</strong>\n• Température de l’eau (analogique)\n• Force du courant marin (I2C)\n• Force du vent (I2C)\n• Taux de particules fines (2 fils)\n\n<strong>Objectifs pédagogiques :</strong>\n• Analyser, concevoir et structurer un système embarqué en environnement critique\n• Mettre en œuvre des capteurs et composants matériels sur microcontrôleur\n• Fournir une documentation claire pour l’utilisateur et le superviseur final",
+      "composants": "liste des Composants :",
+      "cards": {
+        "microcontroller": {
+          "title": "1 Carte Arduino UNO",
+          "image": "/img/projet13/arduino.webp",
+          "description": "ref : Arduino UNO R3"
+        },
+        "storage": {
+          "title": "1 Shield de carte SD pour Arduino",
+          "image": "/img/projet13/shield.webp",
+          "description": "ref : SD Card shield v4.3 07/23/2014"
+        },
+        "rtc": {
+          "title": "1 Base Shield pour Arduino",
+          "image": "/img/projet13/base_shield.webp",
+          "description": "ref : Base Shield v2.1 08/31/2015"
+        },
+        "sensors": {
+          "title": "1 câble USB-A vers USB-B",
+          "image": "/img/projet13/usb.webp",
+          "description": "ref : Cable pour carte Arduino Uno USB30CMARD"
+        },
+        "rgb": {
+          "title": "1 LED RGB",
+          "image": "/img/projet13/led.webp",
+          "description": "ref : Grove Chainable RGB LED v2.0"
+        },
+        "buttons": {
+          "title": "1 capteur regroupant 2 boutons , un vert et un rouge",
+          "image": "/img/projet13/btn.webp",
+          "description": "ref : Grove - Dual Button v1.0."
+        },
+        "gps": {
+          "title": "1 câble de connectique avec un côté, des broches séparées",
+          "image": "/img/projet13/connectiques.webp",
+          "description": "ref :DeLOCK Conversion IOT Grove Câble 4 broches mâle vers 4 x Jumper femelle 20 cm (86947)"
+        },
+        "light": {
+          "title": "1 Capteur RTC ",
+          "image": "/img/projet13/capteur.webp",
+          "description": "ref : RTC v1.2"
+        },
+        "temp": {
+          "title": "1 Capteur de température, pression, humidité ",
+          "image": "/img/projet13/temp.webp",
+          "description": "ref : BME280 WPSE335"
+        },
+        "humidity": {
+          "title": "1 Capteur de luminosité  ",
+          "image": "/img/projet13/lumi.webp",
+          "description": "ref : Grove - Light sensor v1.2 01/20/2016"
+        }
+      },
+      "montage": "Les Branchements :",
+      "explication": "Emboiter les 3 composants dans cet ordre  délicatement en faisant correspondre les broches aux ports"
     }
   },
   "contact": {
