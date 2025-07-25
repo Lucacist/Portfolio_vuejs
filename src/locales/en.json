@@ -164,7 +164,29 @@
         }
       },
       "montage": "Connections:",
-      "explication": ""
+      "explication": "Carefully connect the 3 components in this order, making sure the pins align with the ports",
+      "modes": "Operating Modes:",
+      "mode1": {
+        "title": "Mode 1: Standard Mode",
+        "objective": "Objective: Regular acquisition of environmental data.",
+        "description": "This mode starts automatically without any button being pressed at startup. The system reads sensors at regular intervals (by default, every 10 minutes, configurable via LOG_INTERVAL). Data is saved in files on the SD card. Each file is limited to 2 KB (FILE_MAX_SIZE), after which a new file is created with a revision number. If a sensor does not respond within a timeout (TIMEOUT) of 30 seconds, the value \"NA\" is recorded."
+      },
+      "mode2": {
+        "title": "Mode 2: Configuration Mode",
+        "objective": "Objective: Allow configuration of system parameters.",
+        "description": "Accessible by holding down the red button during startup. Sensor acquisition is suspended to allow interaction with the serial interface. Commands configurable via the serial interface: LOG_INTERVAL: Define the measurement interval. FILE_MAX_SIZE: Adjust the maximum size of log files. TIMEOUT: Define the sensor response timeout. RESET: Reset parameters to default values. VERSION: Displays the program version and batch number. CLOCK and DATE: Set the time and date via the RTC. After 30 minutes of inactivity, the system automatically returns to standard mode."
+      },
+      "mode3": {
+        "title": "Mode 3: Maintenance Mode",
+        "objective": "Objective: Allow access to data via the serial interface and replace the SD card.",
+        "description": "Accessible from standard or economy mode by a long press (5 seconds) on the red button. Data acquisition and recording are suspended, but previously stored data remains accessible. The SD card can be safely removed to avoid file corruption. Another long press on the red button switches the system back to the previous mode."
+      },
+      "mode4": {
+        "title": "Mode 4: Economy Mode",
+        "objective": "Objective: Optimize energy consumption.",
+        "description": "Access from standard mode by a long press of 5 seconds on the green button. This mode reduces system activity by disabling certain sensors and doubling the acquisition interval (LOG_INTERVAL). A long press on the red button allows returning to standard mode."
+      },
+      "no-code": "Unfortunately, I don't have the code at hand. If I find it, I'll let you know."
     }
   },
   "contact": {

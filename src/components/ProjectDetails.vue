@@ -210,10 +210,10 @@
     <div v-if="projectId === 13" class="strongbox-details">
       <h3>{{ $t("projects.project13.composants") }}</h3>
       <div class="ligne13">
-        <div 
-          v-for="card in project13Cards" 
+        <div
+          v-for="card in project13Cards"
           :key="card.key"
-          class="card" 
+          class="card"
           @click="toggleFlip($event)"
         >
           <div class="card-inner">
@@ -221,7 +221,12 @@
               <div class="texte">
                 {{ card.title }}
               </div>
-              <img v-if="card.image" :src="card.image" :alt="card.title" class="card-image" />
+              <img
+                v-if="card.image"
+                :src="card.image"
+                :alt="card.title"
+                class="card-image"
+              />
             </div>
             <div class="card-back">
               <p>{{ card.description }}</p>
@@ -230,13 +235,88 @@
         </div>
       </div>
       <div class="montage-explication">
-      <h3>{{ $t("projects.project13.montage") }}</h3>
-      <p>{{ $t("projects.project13.explication") }}</p>
+        <h3>{{ $t("projects.project13.montage") }}</h3>
+        <p>{{ $t("projects.project13.explication") }}</p>
       </div>
       <div class="montage">
-        <img class="strongbox-image" src="/img/projet13/piece1.webp" alt="montage" />
-        <img class="strongbox-image" src="/img/projet13/piece2.webp" alt="montage" />
-        <img class="strongbox-image" src="/img/projet13/piece3.webp" alt="montage" />
+        <img
+          class="strongbox-image"
+          src="/img/projet13/piece1.webp"
+          alt="montage"
+        />
+        <img
+          class="strongbox-image"
+          src="/img/projet13/piece2.webp"
+          alt="montage"
+        />
+        <img
+          class="strongbox-image"
+          src="/img/projet13/piece3.webp"
+          alt="montage"
+        />
+      </div>
+
+      <div class="modes-section">
+        <h3>{{ $t("projects.project13.modes") }}</h3>
+
+        <div class="mode-card">
+          <h4>{{ $t("projects.project13.mode1.title") }}</h4>
+          <p class="mode-objective">
+            {{ $t("projects.project13.mode1.objective") }}
+          </p>
+          <p class="mode-description">
+            {{ $t("projects.project13.mode1.description") }}
+          </p>
+        </div>
+
+        <div class="mode-card">
+          <h4>{{ $t("projects.project13.mode2.title") }}</h4>
+          <p class="mode-objective">
+            {{ $t("projects.project13.mode2.objective") }}
+          </p>
+          <p class="mode-description">
+            {{ $t("projects.project13.mode2.description") }}
+          </p>
+        </div>
+
+        <div class="mode-card">
+          <h4>{{ $t("projects.project13.mode3.title") }}</h4>
+          <p class="mode-objective">
+            {{ $t("projects.project13.mode3.objective") }}
+          </p>
+          <p class="mode-description">
+            {{ $t("projects.project13.mode3.description") }}
+          </p>
+        </div>
+
+        <div class="mode-card">
+          <h4>{{ $t("projects.project13.mode4.title") }}</h4>
+          <p class="mode-objective">
+            {{ $t("projects.project13.mode4.objective") }}
+          </p>
+          <p class="mode-description">
+            {{ $t("projects.project13.mode4.description") }}
+          </p>
+        </div>
+      </div>
+      <div class="no-code">
+        <p>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke="var(--red-dark)"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"
+            />
+          </svg>
+          {{ $t("projects.project13.no-code") }}
+        </p>
       </div>
     </div>
   </div>
@@ -258,20 +338,31 @@ const props = defineProps({
 const project13Cards = computed(() => {
   // Récupérer les clés des cartes du projet 13
   const cards = [];
-  
+
   // Liste des cartes disponibles
-  const cardKeys = ['microcontroller', 'storage', 'rtc', 'sensors', 'rgb', 'buttons', 'gps', 'light', 'temp', 'humidity'];
-  
+  const cardKeys = [
+    "microcontroller",
+    "storage",
+    "rtc",
+    "sensors",
+    "rgb",
+    "buttons",
+    "gps",
+    "light",
+    "temp",
+    "humidity",
+  ];
+
   // Créer un tableau d'objets pour les cartes
-  cardKeys.forEach(key => {
+  cardKeys.forEach((key) => {
     cards.push({
       key: key,
       title: t(`projects.project13.cards.${key}.title`),
       image: t(`projects.project13.cards.${key}.image`),
-      description: t(`projects.project13.cards.${key}.description`)
+      description: t(`projects.project13.cards.${key}.description`),
     });
   });
-  
+
   return cards;
 });
 
@@ -303,7 +394,8 @@ const toggleFlip = (event) => {
   height: 80%;
 }
 
-.ligne1, .ligne13 {
+.ligne1,
+.ligne13 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(1, auto);
@@ -457,6 +549,66 @@ td {
   justify-content: center;
   align-items: center;
   margin-top: 2rem;
+}
+
+.modes-section {
+  margin-top: 3rem;
+  width: 100%;
+}
+
+.modes-section h3 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.mode-card {
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mode-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mode-card h4 {
+  font-size: 1.25rem;
+  margin-top: 0;
+  color: var(--heading-color);
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.mode-objective {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  text-align: left;
+}
+
+.mode-description {
+  line-height: 1.6;
+  text-align: left;
+}
+
+.no-code p {
+  margin: 0;
+  padding: 1.5rem 3rem;
+  background-color: var(--red-light);
+  border: 1px solid var(--red);
+  color: var(--red-dark);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.no-code svg {
+  width: 1.5rem;
 }
 
 @media (max-width: 900px) {

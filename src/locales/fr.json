@@ -164,7 +164,29 @@
         }
       },
       "montage": "Les Branchements :",
-      "explication": "Emboiter les 3 composants dans cet ordre  délicatement en faisant correspondre les broches aux ports"
+      "explication": "Emboiter les 3 composants dans cet ordre  délicatement en faisant correspondre les broches aux ports",
+      "modes": "Modes de fonctionnement :",
+      "mode1": {
+        "title": "Mode 1 : Mode Standard",
+        "objective": "Objectif : Acquisition régulière des données environnementales.",
+        "description": "Ce mode démarre automatiquement sans qu'aucun bouton ne soit pressé au démarrage. Le système lit les capteurs à intervalles réguliers (par défaut, toutes les 10 minutes, configurables via LOG_INTERVAL). Les données sont sauvegardées dans des fichiers sur la carte SD. Chaque fichier est limité à 2 Ko (FILE_MAX_SIZE), après quoi un nouveau fichier est créé avec un numéro de révision. Si un capteur ne répond pas dans un délai (TIMEOUT) de 30 secondes, la valeur \"NA\" est enregistrée."
+      },
+      "mode2": {
+        "title": "Mode 2 : Mode Configuration",
+        "objective": "Objectif : Permettre la configuration des paramètres du système.",
+        "description": "Accessible en maintenant le bouton rouge enfoncé lors du démarrage. L'acquisition des capteurs est suspendue pour permettre l'interaction avec l'interface série. Commandes configurables via l'interface série : LOG_INTERVAL : Définir l'intervalle de mesure. FILE_MAX_SIZE : Ajuster la taille maximale des fichiers de log. TIMEOUT : Définir le délai de réponse des capteurs. RESET : Réinitialisation des paramètres aux valeurs par défaut. VERSION : Affiche la version du programme et un numéro de lot. CLOCK et DATE : Définissent l'heure et la date via le RTC. Après 30 minutes d'inactivité, le système retourne automatiquement en mode standard."
+      },
+      "mode3": {
+        "title": "Mode 3 : Mode Maintenance",
+        "objective": "Objectif : Permettre l'accès aux données via l'interface série et remplacer la carte SD.",
+        "description": "Accessible depuis le mode standard ou économique par un appui prolongé (5 secondes) sur le bouton rouge. L'acquisition et l'enregistrement des données sont suspendus, mais les données déjà stockées restent accessibles. La carte SD peut être retirée en toute sécurité pour éviter la corruption des fichiers. Un nouvel appui prolongé sur le bouton rouge fait basculer le système vers le mode précédent."
+      },
+      "mode4": {
+        "title": "Mode 4 : Mode Économique",
+        "objective": "Objectif : Optimiser la consommation d'énergie.",
+        "description": "Accès depuis le mode standard par un appui prolongé de 5 secondes sur le bouton vert. Ce mode réduit l'activité du système en désactivant certains capteurs et en doublant l'intervalle d'acquisition (LOG_INTERVAL). Un appui long sur le bouton rouge permet de revenir en mode standard."
+      },
+      "no-code": "Malheureusement, je n'ai pas le code sous la main. Si je le retrouve, je vous ferai signe."
     }
   },
   "contact": {
