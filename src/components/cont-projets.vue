@@ -101,6 +101,10 @@ const projects = ref([
     id: 13,
     image: "/img/weather-station.png",
     tech: ["/img/competences/Arduino.svg", "/img/competences/C++.svg"]
+  },
+  {
+    id: 14,
+    image: "/img/funky.webp",
   }
 ]);
 </script>

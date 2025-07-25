@@ -187,6 +187,10 @@
         "description": "Accès depuis le mode standard par un appui prolongé de 5 secondes sur le bouton vert. Ce mode réduit l'activité du système en désactivant certains capteurs et en doublant l'intervalle d'acquisition (LOG_INTERVAL). Un appui long sur le bouton rouge permet de revenir en mode standard."
       },
       "no-code": "Malheureusement, je n'ai pas le code sous la main. Si je le retrouve, je vous ferai signe."
+    },
+    "project14": {
+      "title": "FunkyTown city",
+      "description": "Description du projet 14"
     }
   },
   "contact": {

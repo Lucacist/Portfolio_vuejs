@@ -323,6 +323,14 @@ const projectsList = ref([
     description: "/",
     github: "",
     hasDownload: false,
+  },
+  {
+    id: 14,
+    image: "/img/funky.webp",
+    description: "/",
+    github: "",
+    hasDownload: false,
+    inProgress: true,
   }
 ]);
 
