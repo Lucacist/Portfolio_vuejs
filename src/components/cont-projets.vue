@@ -65,7 +65,7 @@ const projects = ref([
   {
     id: 6,
     image: "/img/formation-tel-tab.png",
-    tech: ["/img/competences/React.svg", "/img/competences/nodejs.svg", "/img/competences/Postgresql.svg"]
+    tech: ["/img/competences/next.svg", "/img/competences/CSS.svg", "/img/competences/Postgresql.svg"]
   },
   {
     id: 7,
@@ -92,6 +92,16 @@ const projects = ref([
     image: "/img/portail-assystem.png",
     tech: ["/img/competences/Vue.js.svg", "/img/competences/Microsoft_.NET_logo.svg", "/img/competences/CSS.svg", "/img/competences/Postgresql.svg"]
   },
+  {
+    id: 12,
+    image: "/img/clock.png",
+    tech: ["/img/competences/HTML.svg", "/img/competences/CSS.svg"]
+  },
+  {
+    id: 13,
+    image: "/img/portail-assystem.png",
+    tech: ["/img/competences/Vue.js.svg", "/img/competences/Microsoft_.NET_logo.svg", "/img/competences/CSS.svg", "/img/competences/Postgresql.svg"]
+  }
 ]);
 </script>
 

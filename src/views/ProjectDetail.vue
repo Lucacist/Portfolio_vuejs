@@ -234,13 +234,13 @@ const projectsList = ref([
   {
     id: 6,
     image: "/img/formation-tel-tab.png",
-    tech: ["/img/competences/React.svg", "/img/competences/nodejs.svg","/img/competences/Postgresql.svg"],
+    tech: ["/img/competences/next.svg", "/img/competences/CSS.svg", "/img/competences/Postgresql.svg"],
     description:
       "/",
-    github: "",
-    hasDownload: true,
+    github: "https://github.com/Lucacist/App-cours-next",
+    hasDownload: false,
     downloadFile: "/downloads/formation-site.zip",
-    inProgress: true,
+    siteUrl: "https://cours-chatos.netlify.app",
   },
   {
     id: 7,
@@ -304,6 +304,15 @@ const projectsList = ref([
     description: "/",
     github: "",
     hasDownload: false,
+  },
+  {
+    id: 12,
+    image: "/img/clock.png",
+    tech: ["/img/competences/HTML.svg", "/img/competences/CSS.svg"],
+    description: "/",
+    github: "https://github.com/Lucacist/clock",
+    hasDownload: false,
+    siteUrl: "https://lucacist.github.io/clock/clock.html",
   },
 ]);
 
