@@ -99,8 +99,8 @@ const projects = ref([
   },
   {
     id: 13,
-    image: "/img/portail-assystem.png",
-    tech: ["/img/competences/Vue.js.svg", "/img/competences/Microsoft_.NET_logo.svg", "/img/competences/CSS.svg", "/img/competences/Postgresql.svg"]
+    image: "/img/weather-station.png",
+    tech: ["/img/competences/Arduino.svg", "/img/competences/C++.svg"]
   }
 ]);
 </script>

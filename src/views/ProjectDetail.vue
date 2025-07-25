@@ -314,6 +314,14 @@ const projectsList = ref([
     hasDownload: false,
     siteUrl: "https://lucacist.github.io/clock/clock.html",
   },
+  {
+    id: 13,
+    image: "/img/weather-station.png",
+    tech: ["/img/competences/Arduino.svg", "/img/competences/C++.svg"],
+    description: "/",
+    github: "",
+    hasDownload: false,
+  }
 ]);
 
 // Trouver le projet correspondant à l'ID
