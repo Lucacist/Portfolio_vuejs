@@ -79,12 +79,12 @@ const projects = ref([
   },
   {
     id: 9,
-    get image() { return isDarkMode.value ? "/img/guest-wifi.svg" : "/img/dark-guest-wifi.svg"; },
+    image: "/img/plugin-guest-wifi.png",
     tech: ["/img/competences/php.svg", "/img/competences/CSS.svg", "/img/competences/MySQL.svg"]
   },
   {
     id: 10,
-    get image() { return isDarkMode.value ? "/img/CET.svg" : "/img/Dark-cet.svg"; },
+    image: "/img/plugin-compte--pargne-retraite-.png",
     tech: ["/img/competences/php.svg", "/img/competences/CSS.svg", "/img/competences/MySQL.svg"]
   },
   {

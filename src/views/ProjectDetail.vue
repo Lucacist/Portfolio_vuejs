@@ -271,7 +271,7 @@ const projectsList = ref([
   },
   {
     id: 9,
-    image: "/img/guest_wifi.png",
+    image: "/img/plugin-guest-wifi.png",
     tech: [
       "/img/competences/php.svg",
       "/img/competences/CSS.svg",
@@ -292,6 +292,7 @@ const projectsList = ref([
     description: "/",
     github: "",
     hasDownload: false,
+    inProgress: true,
   },
   {
     id: 11,
@@ -304,6 +305,7 @@ const projectsList = ref([
     description: "/",
     github: "",
     hasDownload: false,
+    inProgress: true,
   },
   {
     id: 12,
