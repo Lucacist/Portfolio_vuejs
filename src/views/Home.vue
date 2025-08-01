@@ -24,35 +24,37 @@ const handleSubtitleComplete = () => {
   <div class="home">
     <div class="container">
       <div class="hero-section">
-        <h1>
-          <SplitText
-            :text="t('home.title')"
-            className="my-text"
-            :splitType="'chars'"
-            :delay="80"
-            :duration="0.5"
-            :from="{ opacity: 0, y: 30 }"
-            :to="{ opacity: 1, y: 0 }"
-            :onLetterAnimationComplete="handleTitleComplete"
-          />
-        </h1>
-        <p class="subtitle-wrapper" style="height: 5.5rem">
-          <SplitText
-            v-if="showSubtitle"
-            :text="t('home.subtitle')"
-            className="my-text"
-            :splitType="'chars'"
-            :delay="80"
-            :duration="0.5"
-            :from="{ opacity: 0, y: 30 }"
-            :to="{ opacity: 1, y: 0 }"
-            :onLetterAnimationComplete="handleSubtitleComplete"
-          />
-          <span v-else class="invisible-placeholder">{{ t('home.subtitle') }}</span>
-        </p>
-        <div class="hero-buttons-container">
-          <div v-if="showButtons" class="hero-buttons">
-            <a href="https://www.linkedin.com/in/luca-fourfooz-593978336/" class="button-animation linkedin-button">
+        <div class="hauteur">
+          <h1>
+            <SplitText
+              :text="t('home.title')"
+              className="my-text"
+              :splitType="'chars'"
+              :delay="80"
+              :duration="0.5"
+              :from="{ opacity: 0, y: 30 }"
+              :to="{ opacity: 1, y: 0 }"
+              :onLetterAnimationComplete="handleTitleComplete"
+            />
+          </h1>
+          <p class="subtitle">
+            <SplitText
+              v-if="showSubtitle"
+              :text="t('home.subtitle')"
+              className="subtitle-text"
+              :splitType="'chars'"
+              :delay="80"
+              :duration="0.5"
+              :from="{ opacity: 0, y: 30 }"
+              :to="{ opacity: 1, y: 0 }"
+              :onLetterAnimationComplete="handleSubtitleComplete"
+            />
+          </p>
+          <div class="hero-buttons" v-if="showButtons">
+            <a
+              href="https://www.linkedin.com/in/luca-fourfooz-593978336/"
+              class="button-animation linkedin-button"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="54"
@@ -75,7 +77,10 @@ const handleSubtitleComplete = () => {
 
               Linkedin</a
             >
-            <a href="https://github.com/Lucacist" class="button-animation github-button">
+            <a
+              href="https://github.com/Lucacist"
+              class="button-animation github-button"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="60"
@@ -91,7 +96,6 @@ const handleSubtitleComplete = () => {
               GitHub</a
             >
           </div>
-          <div v-else class="hero-buttons-placeholder"></div>
         </div>
       </div>
       <img src="/img/fr.svg" alt="" />
@@ -201,6 +205,13 @@ const handleSubtitleComplete = () => {
   gap: 1rem;
 }
 
+.hero-section .hauteur {
+  min-height: 252px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .hero-section h1 {
   font-size: 3rem;
   color: var(--text-color);
@@ -215,9 +226,14 @@ const handleSubtitleComplete = () => {
   transition: color 0.3s ease;
 }
 
+.subtitle {
+  min-height: 5rem;
+}
+
 .hero-buttons {
   display: flex;
   gap: 1rem;
+  min-height: 36px;
 }
 
 .hero-buttons a {
@@ -346,30 +362,6 @@ const handleSubtitleComplete = () => {
   visibility: hidden;
   user-select: none;
   display: inline-block;
-}
-
-.subtitle-wrapper {
-  height: 5.5rem; /* Hauteur fixe basée sur la taille du texte, ajustée selon l'inline style */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 1rem 0;
-}
-
-.invisible-placeholder {
-  opacity: 0;
-  visibility: hidden;
-  user-select: none;
-  pointer-events: none;
-}
-
-.hero-buttons-container {
-  height: 60px;
-  margin: 1rem 0;
-}
-
-.hero-buttons-placeholder {
-  height: 60px;
 }
 
 .button-animation {
