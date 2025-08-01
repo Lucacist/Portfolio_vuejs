@@ -11,6 +11,7 @@ const currentYear = new Date().getFullYear();
       <div class="footer-content">
         <div class="footer-logo">
           <h3>Portfolio</h3>
+          <p>Etudiant en cycle ingénieur</p>
           <p>Développeur Web</p>
         </div>
         
