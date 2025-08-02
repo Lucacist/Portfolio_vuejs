@@ -1,21 +1,27 @@
 <script setup>
 import { useI18n } from "vue-i18n";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import Carousel from "../components/Carousel.vue";
 import projetetcv from "../components/projetetcv.vue";
 import propositions_projets from "../components/propositions_projets.vue";
 import SplitText from "../components/SplitText.vue";
 
 const { t } = useI18n();
-const showSubtitle = ref(false);
+
+// Initialiser les variables à false
+const subtitleReady = ref(false);
 const showButtons = ref(false);
 
+// Référence pour le sous-titre
+const subtitleRef = ref(null);
+
 const handleTitleComplete = () => {
-  showSubtitle.value = true;
+  // Activer l'affichage du sous-titre
+  subtitleReady.value = true;
 };
 
 const handleSubtitleComplete = () => {
-  // Afficher les boutons après l'animation du sous-titre
+  // Activer l'affichage des boutons
   showButtons.value = true;
 };
 </script>
@@ -37,18 +43,12 @@ const handleSubtitleComplete = () => {
               :onLetterAnimationComplete="handleTitleComplete"
             />
           </h1>
-          <p class="subtitle">
-            <SplitText
-              v-if="showSubtitle"
-              :text="t('home.subtitle')"
-              className="subtitle-text"
-              :splitType="'chars'"
-              :delay="80"
-              :duration="0.5"
-              :from="{ opacity: 0, y: 30 }"
-              :to="{ opacity: 1, y: 0 }"
-              :onLetterAnimationComplete="handleSubtitleComplete"
-            />
+          <p
+            class="subtitle-text"
+            v-if="subtitleReady"
+            @animationend="handleSubtitleComplete"
+          >
+            {{ t("home.subtitle") }}
           </p>
           <div class="hero-buttons" v-if="showButtons">
             <a
@@ -167,6 +167,7 @@ const handleSubtitleComplete = () => {
 
     <div class="presentation">
       <p>{{ t("home.presentationText") }}</p>
+      <img src="/img/pp.png" alt="" />
     </div>
     <div class="carousell">
       <h2>{{ t("home.carouselTitle") }}</h2>
@@ -206,10 +207,11 @@ const handleSubtitleComplete = () => {
 }
 
 .hero-section .hauteur {
-  min-height: 252px;
+  min-height: 275px;
   display: flex;
   align-items: center;
   flex-direction: column;
+  gap: 1rem;
 }
 
 .hero-section h1 {
@@ -226,8 +228,16 @@ const handleSubtitleComplete = () => {
   transition: color 0.3s ease;
 }
 
-.subtitle {
+.subtitle-text {
+  font-size: 1.5rem;
+  margin: 1rem 0;
   min-height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
 }
 
 .hero-buttons {
@@ -299,6 +309,7 @@ const handleSubtitleComplete = () => {
 .presentation {
   display: flex;
   max-width: 1200px;
+  flex-direction: row-reverse;
   margin: 2rem auto;
   padding: 0 4.5rem;
   text-align: center;
@@ -306,6 +317,17 @@ const handleSubtitleComplete = () => {
   font-size: 1rem;
   color: var(--text-color);
   font-weight: 500;
+  align-items: center;
+}
+
+.presentation p {
+  margin-bottom: 0;
+  height: fit-content;
+  display: flex;
+}
+
+.presentation img {
+  height: 300px;
 }
 
 .carousell {
@@ -332,6 +354,12 @@ const handleSubtitleComplete = () => {
   }
 }
 
+@media (max-width: 800px) {
+  .presentation img {
+    height: 200px;
+  }
+}
+
 @media (max-width: 700px) {
   .container img {
     width: 70%;
@@ -342,6 +370,16 @@ const handleSubtitleComplete = () => {
   }
   .hero-section p {
     font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .presentation {
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
+  .presentation img {
+    height: 300px;
   }
 }
 
