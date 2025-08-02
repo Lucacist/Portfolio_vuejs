@@ -217,5 +217,12 @@
   },
   "theme": {
     "switchTheme": "Changer de thème"
+  },
+  "footer": {
+    "student": "Etudiant en cycle ingénieur",
+    "webDev": "Développeur Web",
+    "navigation": "Navigation",
+    "social": "Social",
+    "allRightsReserved": "Tous droits réservés."
   }
 }

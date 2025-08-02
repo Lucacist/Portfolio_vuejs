@@ -1,8 +1,9 @@
 <script setup>
-import { useI18n } from "vue-i18n";
-const { t } = useI18n();
+import { ref, onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
 
-const currentYear = new Date().getFullYear();
+const { t } = useI18n();
+const currentYear = ref(new Date().getFullYear());
 </script>
 
 <template>
@@ -11,13 +12,13 @@ const currentYear = new Date().getFullYear();
       <div class="footer-content">
         <div class="footer-logo">
           <h3>Portfolio</h3>
-          <p>Etudiant en cycle ingénieur</p>
-          <p>Développeur Web</p>
+          <p>{{ t('footer.student') }}</p>
+          <p>{{ t('footer.webDev') }}</p>
         </div>
         
         <div class="footer-links">
           <div class="link-group">
-            <h4>Navigation</h4>
+            <h4>{{ t('footer.navigation') }}</h4>
             <ul>
               <li><router-link to="/">{{ t("nav.home") }}</router-link></li>
               <li><router-link to="/projects">{{ t("nav.projects") }}</router-link></li>
@@ -26,7 +27,7 @@ const currentYear = new Date().getFullYear();
           </div>
           
           <div class="link-group">
-            <h4>Social</h4>
+            <h4>{{ t('footer.social') }}</h4>
             <ul>
               <li><a href="https://www.linkedin.com/in/luca-fourfooz-593978336/" target="_blank">LinkedIn</a></li>
               <li><a href="https://github.com/Lucacist" target="_blank">GitHub</a></li>
@@ -36,7 +37,7 @@ const currentYear = new Date().getFullYear();
       </div>
       
       <div class="copyright">
-        <p>&copy; {{ currentYear }} Portfolio. Tous droits réservés.</p>
+        <p>&copy; {{ currentYear }} Portfolio. {{ t('footer.allRightsReserved') }}</p>
       </div>
     </div>
   </footer>

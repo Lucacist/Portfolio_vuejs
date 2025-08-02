@@ -217,5 +217,12 @@
   },
   "theme": {
     "switchTheme": "Switch theme"
+  },
+  "footer": {
+    "student": "Engineering Student",
+    "webDev": "Web Developer",
+    "navigation": "Navigation",
+    "social": "Social",
+    "allRightsReserved": "All rights reserved."
   }
 }
