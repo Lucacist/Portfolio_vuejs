@@ -20,22 +20,30 @@
 
         {{ t("home.projectsCV.viewProjects") }}
       </router-link>
-      <a href="../downloads/CVLucaFourfooz.pdf" target="_blank" rel="noopener noreferrer" download class="btn cv-btn">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="icon"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
-          />
-        </svg>
-        {{ t("home.projectsCV.downloadCV") }}
+      <a
+        href="../downloads/CVLucaFourfooz.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        download
+        class="btn cv-btn"
+      >
+        <div class="icon-container">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="icon"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+            />
+          </svg>
+        </div>
+        <div>{{ t("home.projectsCV.downloadCV") }}</div>
       </a>
     </div>
   </div>
@@ -77,27 +85,90 @@ const { t } = useI18n();
 .btn {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
   border-radius: 8px;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
   cursor: pointer;
-  background-color: var(--primary-color);
 }
 
 .projects-btn {
-  color: var(--text-color);
+  animation: bounce 2s cubic-bezier(0.28, 0.84, 0.42, 1) infinite;
+  background-color: var(--text-color);
+  color: var(--background-color);
+  padding: 0.75rem 1.5rem;
+  gap: 0.5rem;
+
 }
 
 .cv-btn {
-  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.btn:hover {
-  transform: translateY(-3px);
+.cv-btn:hover {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.cv-btn .icon-container {
+  background-color: var(--text-color);
+  color: var(--background-color);
+  height: 100%;
+  padding: 0 0.90rem;
+  display: flex;
+  align-items: center;
+  border-radius: 80px;
+}
+
+.cv-btn :nth-child(2) {
+  background-color: var(--text-color);
+  color: var(--background-color);
+  padding: 0.75rem 1.5rem;
+  border-radius: 80px;
+
+}
+
+.projects-btn:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.icon-container:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cv-btn :nth-child(2):hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes bounce {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(5deg);
+  }
+  20% {
+    transform: rotate(-5deg);
+  }
+  30% {
+    transform: rotate(5deg);
+  }
+  40% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+  55% {
+    transform: rotate(0deg);
+  }
 }
 
 .icon {

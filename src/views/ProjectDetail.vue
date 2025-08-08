@@ -195,7 +195,7 @@ const projectsList = ref([
   },
   {
     id: 2,
-    image: "/img/New-life.svg",
+    image: "/img/New-life.png",
     tech: ["/img/competences/next.svg", "/img/competences/CSS.svg"],
     description:
       "/",
