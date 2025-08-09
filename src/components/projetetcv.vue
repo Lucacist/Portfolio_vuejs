@@ -20,21 +20,22 @@
 
         {{ t("home.projectsCV.viewProjects") }}
       </router-link>
+      
+
       <a
         href="../downloads/CVLucaFourfooz.pdf"
         target="_blank"
         rel="noopener noreferrer"
         download
-        class="btn cv-btn"
+        class="animated-button"
       >
-        <div class="icon-container">
-          <svg
+        <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="icon"
+            class="arr-2"
           >
             <path
               stroke-linecap="round"
@@ -42,8 +43,21 @@
               d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
             />
           </svg>
-        </div>
-        <div>{{ t("home.projectsCV.downloadCV") }}</div>
+        <span class="text">{{ t("home.projectsCV.downloadCV") }}</span>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="arr-1"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+            />
+          </svg>
       </a>
     </div>
   </div>
@@ -98,10 +112,10 @@ const { t } = useI18n();
   color: var(--background-color);
   padding: 0.75rem 1.5rem;
   gap: 0.5rem;
-
 }
 
 .cv-btn {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 0.2rem;
@@ -121,7 +135,7 @@ const { t } = useI18n();
   background-color: var(--text-color);
   color: var(--background-color);
   height: 100%;
-  padding: 0 0.90rem;
+  padding: 0 0.9rem;
   display: flex;
   align-items: center;
   border-radius: 80px;
@@ -132,7 +146,6 @@ const { t } = useI18n();
   color: var(--background-color);
   padding: 0.75rem 1.5rem;
   border-radius: 80px;
-
 }
 
 .projects-btn:hover {
@@ -186,5 +199,74 @@ const { t } = useI18n();
     width: 100%;
     justify-content: center;
   }
+}
+
+.animated-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  padding: 0 58px;
+color: var(--background-color);
+}
+
+.animated-button svg {
+  position: absolute;
+  width: 24px;
+  z-index: 9;
+  background-color: var(--text-color);
+  display: flex;
+  height: 100%;
+  align-items: center;
+  border-radius: 80px;
+width: 49.6px;
+padding: 0 15px;
+transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .arr-1 {
+  right: 16px;
+}
+
+.animated-button .arr-2 {
+  left: -25%;
+}
+
+
+.animated-button .text {
+  position: relative;
+  z-index: 1;
+  padding: 0 20px;
+  color: var(--background-color);
+  border-radius: 80px;
+  transform: translateX(-12px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  display: flex;
+  height: 100%;
+  align-items: center;
+  background-color: var(--text-color);
+}
+
+.animated-button:hover {
+  box-shadow: 0 0 0 12px transparent;
+  border-radius: 12px;
+}
+
+.animated-button:hover .arr-1 {
+  right: -25%;
+}
+
+.animated-button:hover .arr-2 {
+  left: 16px;
+}
+
+.animated-button:hover .text {
+  transform: translateX(12px);
 }
 </style>
