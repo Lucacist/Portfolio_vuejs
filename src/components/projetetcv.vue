@@ -189,23 +189,12 @@ const { t } = useI18n();
   height: 20px;
 }
 
-@media (max-width: 600px) {
-  .buttons-container {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .btn {
-    width: 100%;
-    justify-content: center;
-  }
-}
-
 .animated-button {
   position: relative;
   overflow: hidden;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   display: flex;
+  min-height: 49.6px;
   align-items: center;
   gap: 0.2rem;
   font-weight: 600;
