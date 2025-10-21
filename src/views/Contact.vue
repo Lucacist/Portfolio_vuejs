@@ -658,6 +658,7 @@ textarea:-webkit-autofill:focus {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+    z-index: 100;
 }
 
 .next-btn {

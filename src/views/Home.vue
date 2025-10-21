@@ -166,7 +166,13 @@ const handleSubtitleComplete = () => {
     </div>
 
     <div class="presentation">
-      <p>{{ t("home.presentationText") }}</p>
+      <div class="container-ville">
+        <p>{{ t("home.presentationText") }}</p>
+        <div class="ville">
+        <p>{{ t("home.ville1") }}</p>
+        <p>{{ t("home.ville2") }}</p>
+        </div>
+      </div>
       <img src="/img/pp.png" alt="" />
     </div>
     <div class="carousell">
@@ -193,6 +199,30 @@ const handleSubtitleComplete = () => {
 .container img {
   width: 80%;
   margin: 0 auto;
+}
+
+.container-ville {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.ville {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  font-style: normal;
+}
+
+.ville p {
+  background-color: var(--text-color);
+  color: var(--background-color);
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
 }
 
 .hero-section {

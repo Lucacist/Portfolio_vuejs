@@ -6,6 +6,7 @@
   --text-color: #000;
   --text-color-light: #6b7280;
   --background-color: #ffffff;
+  --background-color-modal: #ffffffDD;
   --background-color-alt: #f9fafb;
   --border-color: #e5e7eb;
   --button-color: #d5d5d9;
@@ -32,6 +33,7 @@
   --text-color: #f9fafb;
   --text-color-light: #d1d5db;
   --background-color: #0a0a0a;
+  --background-color-modal: #000000DD;
   --background-color-alt: #1f2937;
   --border-color: #484a4d;
   --button-color: #4c4b53;

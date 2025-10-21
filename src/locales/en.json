@@ -9,6 +9,8 @@
     "title": "Welcome to my Portfolio",
     "subtitle": "Engineering preparatory student, specializing in computer science",
     "presentationText": "Hello, I'm Luca Fourfooz. I love exploring new technologies and creating innovative solutions. When I'm not designing, I enjoy surfing and playing video games!",
+    "ville1": "Rouen",
+    "ville2": "Cherbourg",
     "carouselTitle": "My Skills",
     "projectsCV": {
       "tagline": "Discover my projects and professional journey",
@@ -217,6 +219,10 @@
   },
   "theme": {
     "switchTheme": "Switch theme"
+  },
+  "qrcode": {
+    "title": "Scan 🚀",
+    "buttonTitle": "Show QR Code"
   },
   "footer": {
     "student": "Engineering Student",
