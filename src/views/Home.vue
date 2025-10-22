@@ -32,6 +32,7 @@ const handleSubtitleComplete = () => {
       <div class="hero-section">
         <div class="hauteur">
           <h1>
+            <span class="emoji-wave">👋</span>
             <SplitText
               :text="t('home.title')"
               className="my-text"
@@ -454,6 +455,31 @@ const handleSubtitleComplete = () => {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+.emoji-wave {
+  display: inline-block;
+  animation: wave 2.5s ease-in-out infinite;
+  transform-origin: 70% 70%;
+  margin-right: 0.5rem;
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  10%, 30% {
+    transform: rotate(14deg);
+  }
+  20%, 40% {
+    transform: rotate(-8deg);
+  }
+  50% {
+    transform: rotate(14deg);
+  }
+  60% {
+    transform: rotate(0deg);
   }
 }
 </style>
