@@ -11,6 +11,7 @@ const { t } = useI18n();
 // Initialiser les variables à false
 const subtitleReady = ref(false);
 const showButtons = ref(false);
+const showTitle2 = ref(false);
 
 // Référence pour le sous-titre
 const subtitleRef = ref(null);
@@ -24,6 +25,13 @@ const handleSubtitleComplete = () => {
   // Activer l'affichage des boutons
   showButtons.value = true;
 };
+
+// Démarrer l'animation de la deuxième ligne après un délai
+onMounted(() => {
+  setTimeout(() => {
+    showTitle2.value = true;
+  }, 1500); // Délai en millisecondes (1500ms = 1.5s)
+});
 </script>
 
 <template>
@@ -33,16 +41,31 @@ const handleSubtitleComplete = () => {
         <div class="hauteur">
           <h1>
             <span class="emoji-wave">👋</span>
-            <SplitText
-              :text="t('home.title')"
-              className="my-text"
-              :splitType="'chars'"
-              :delay="80"
-              :duration="0.5"
-              :from="{ opacity: 0, y: 30 }"
-              :to="{ opacity: 1, y: 0 }"
-              :onLetterAnimationComplete="handleTitleComplete"
-            />
+
+            <div class="title-line">
+              <SplitText
+                :text="t('home.title')"
+                className="my-text"
+                :splitType="'chars'"
+                :delay="80"
+                :duration="0.5"
+                :from="{ opacity: 0, y: 30 }"
+                :to="{ opacity: 1, y: 0 }"
+              />
+            </div>
+            <div class="title-line-2">
+              <SplitText
+                v-if="showTitle2"
+                :text="t('home.title2')"
+                className="title-highlight"
+                :splitType="'chars'"
+                :delay="80"
+                :duration="0.5"
+                :from="{ opacity: 0, y: 30 }"
+                :to="{ opacity: 1, y: 0 }"
+                :onLetterAnimationComplete="handleTitleComplete"
+              />
+            </div>
           </h1>
           <p
             class="subtitle-text"
@@ -170,8 +193,8 @@ const handleSubtitleComplete = () => {
       <div class="container-ville">
         <p>{{ t("home.presentationText") }}</p>
         <div class="ville">
-        <p>{{ t("home.ville1") }}</p>
-        <p>{{ t("home.ville2") }}</p>
+          <p>{{ t("home.ville1") }}</p>
+          <p>{{ t("home.ville2") }}</p>
         </div>
       </div>
       <img src="/img/pp.png" alt="" />
@@ -249,6 +272,10 @@ const handleSubtitleComplete = () => {
   font-size: 3rem;
   color: var(--text-color);
   transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .hero-section p {
@@ -458,6 +485,22 @@ const handleSubtitleComplete = () => {
   }
 }
 
+.title-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-line-2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--red);
+  padding: 0.2rem 0.5rem;
+  transform: rotate(-6deg);
+  border-radius: 5px;
+}
+
 .emoji-wave {
   display: inline-block;
   animation: wave 2.5s ease-in-out infinite;
@@ -466,13 +509,16 @@ const handleSubtitleComplete = () => {
 }
 
 @keyframes wave {
-  0%, 100% {
+  0%,
+  100% {
     transform: rotate(0deg);
   }
-  10%, 30% {
+  10%,
+  30% {
     transform: rotate(14deg);
   }
-  20%, 40% {
+  20%,
+  40% {
     transform: rotate(-8deg);
   }
   50% {

@@ -6,7 +6,8 @@
     "contact": "Contact"
   },
   "home": {
-    "title": "Bienvenue sur mon Portfolio",
+    "title": "Bienvenue sur mon",
+    "title2": "Portfolio",
     "subtitle": "Étudiant en prépa ingénieur, spécialité informatique",
     "presentationText": "Bonjour, je m'appelle Luca Fourfooz. J'adore explorer de nouvelles technologies et créer des solutions innovantes. Lorsque je ne suis pas en train de concevoir, j'aime le surf et jouer à des jeux vidéo !",
     "ville1": "Rouen",
