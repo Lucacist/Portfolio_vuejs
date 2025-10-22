@@ -5,6 +5,7 @@ import Carousel from "../components/Carousel.vue";
 import projetetcv from "../components/projetetcv.vue";
 import propositions_projets from "../components/propositions_projets.vue";
 import SplitText from "../components/SplitText.vue";
+import entreprise from "../components/entreprise.vue";
 
 const { t } = useI18n();
 
@@ -203,6 +204,7 @@ onMounted(() => {
       <h2>{{ t("home.carouselTitle") }}</h2>
       <Carousel />
     </div>
+    <entreprise />
     <propositions_projets />
     <projetetcv />
   </div>
@@ -245,7 +247,7 @@ onMounted(() => {
 .ville p {
   background-color: var(--text-color);
   color: var(--background-color);
-  padding: 0.2rem 0.5rem;
+  padding: 0.3rem 1rem;
   border-radius: 5px;
 }
 

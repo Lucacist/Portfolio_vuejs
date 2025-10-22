@@ -8,7 +8,7 @@
   "home": {
     "title": "Welcome to my",
     "title2": "Portfolio",
-    "subtitle": "Engineering preparatory student, specializing in computer science",
+    "subtitle": "Engineering student, specializing in computer science",
     "presentationText": "Hello, I'm Luca Fourfooz. I love exploring new technologies and creating innovative solutions. When I'm not designing, I enjoy surfing and playing video games!",
     "ville1": "Rouen",
     "ville2": "Cherbourg",
@@ -34,6 +34,11 @@
         "description": "Creation of plugins and extensions to enhance the functionality of your platforms."
       },
       "contactMe": "Contact Me"
+    },
+    "entreprise": {
+      "title": "Assystem",
+      "subtitle": "After a 4-month internship at Assystem as an internal web and software developer during my preparatory engineering course, I am pleased to announce that I am now pursuing my engineering cycle (3 years) at the same company, this time as a software developer for clients such as EDF, Orano, and many others.",
+      "text": "Learn more about Assystem"
     }
   },
   "projects": {

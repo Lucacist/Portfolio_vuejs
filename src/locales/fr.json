@@ -8,7 +8,7 @@
   "home": {
     "title": "Bienvenue sur mon",
     "title2": "Portfolio",
-    "subtitle": "Étudiant en prépa ingénieur, spécialité informatique",
+    "subtitle": "Étudiant en cycle ingénieur, spécialité informatique",
     "presentationText": "Bonjour, je m'appelle Luca Fourfooz. J'adore explorer de nouvelles technologies et créer des solutions innovantes. Lorsque je ne suis pas en train de concevoir, j'aime le surf et jouer à des jeux vidéo !",
     "ville1": "Rouen",
     "ville2": "Cherbourg",
@@ -34,6 +34,11 @@
         "description": "Création de plugins et extensions pour étendre les fonctionnalités de vos plateformes."
       },
       "contactMe": "Me contacter"
+    },
+    "entreprise": {
+      "title": "Assystem",
+      "subtitle": "Après un stage de 4 mois chez Assystem en tant que développeur logiciel et web interne durant ma prépa ingénieur, j’ai le plaisir de vous annoncer que je poursuis désormais mon cycle ingénieur (sur 3 ans) au sein de la même entreprise, cette fois en tant que développeur logiciel pour des clients tels qu’EDF, Orano, et bien d’autres.",
+      "text": "En savoir plus sur Assystem"
     }
   },
   "projects": {
