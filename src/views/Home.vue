@@ -13,9 +13,25 @@ const { t } = useI18n();
 const subtitleReady = ref(false);
 const showButtons = ref(false);
 const showTitle2 = ref(false);
+const showMapModal = ref(false);
+const selectedCity = ref(null);
 
 // Référence pour le sous-titre
 const subtitleRef = ref(null);
+
+// Coordonnées des villes
+const cities = {
+  ville1: {
+    name: 'Rouen',
+    coordinates: { lat: 49.4431, lng: 1.0993 },
+    iframe: 'https://www.openstreetmap.org/export/embed.html?bbox=1.0393%2C49.4131%2C1.1593%2C49.4731&layer=mapnik&marker=49.4431%2C1.0993'
+  },
+  ville2: {
+    name: 'Cherbourg',
+    coordinates: { lat: 49.6395, lng: -1.6163 },
+    iframe: 'https://www.openstreetmap.org/export/embed.html?bbox=-1.6763%2C49.6095%2C-1.5563%2C49.6695&layer=mapnik&marker=49.6395%2C-1.6163'
+  }
+};
 
 const handleTitleComplete = () => {
   // Activer l'affichage du sous-titre
@@ -33,6 +49,20 @@ onMounted(() => {
     showTitle2.value = true;
   }, 1500); // Délai en millisecondes (1500ms = 1.5s)
 });
+
+// Gérer l'ouverture du modal de carte
+const openMapModal = (cityKey) => {
+  selectedCity.value = cities[cityKey];
+  showMapModal.value = true;
+  document.body.style.overflow = 'hidden';
+};
+
+// Fermer le modal
+const closeMapModal = () => {
+  showMapModal.value = false;
+  selectedCity.value = null;
+  document.body.style.overflow = '';
+};
 </script>
 
 <template>
@@ -194,8 +224,8 @@ onMounted(() => {
       <div class="container-ville">
         <p>{{ t("home.presentationText") }}</p>
         <div class="ville">
-          <p>{{ t("home.ville1") }}</p>
-          <p>{{ t("home.ville2") }}</p>
+          <button @click="openMapModal('ville1')"><span>📍</span> {{ t("home.ville1") }}</button>
+          <button @click="openMapModal('ville2')"><span>📍</span> {{ t("home.ville2") }}</button>
         </div>
       </div>
       <img src="/img/pp.png" alt="" />
@@ -207,6 +237,42 @@ onMounted(() => {
     <entreprise />
     <propositions_projets />
     <projetetcv />
+
+    <!-- Modal de carte -->
+    <Teleport to="body">
+      <Transition name="map-modal">
+        <div v-if="showMapModal" class="map-modal-overlay" @click="closeMapModal">
+          <div class="map-modal-content" @click.stop>
+            <button class="map-close-btn" @click="closeMapModal">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+            <div class="map-header">
+              <h3>📍 {{ selectedCity?.name }}</h3>
+            </div>
+            <div class="map-container">
+              <iframe
+                v-if="selectedCity"
+                :src="selectedCity.iframe"
+                frameborder="0"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </Transition>
+    </Teleport>
   </div>
 </template>
 
@@ -244,12 +310,27 @@ onMounted(() => {
   font-style: normal;
 }
 
-.ville p {
+.ville button {
   background-color: var(--text-color);
   color: var(--background-color);
   padding: 0.3rem 1rem;
   border-radius: 5px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.ville button span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ville button:hover span {
+  transform: rotate(-10deg);
+}
+  
 
 .hero-section {
   display: flex;
@@ -528,6 +609,124 @@ onMounted(() => {
   }
   60% {
     transform: rotate(0deg);
+  }
+}
+
+/* Modal de carte */
+.map-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 2000;
+  padding: 1rem;
+}
+
+.map-modal-content {
+  background-color: var(--background-color);
+  border-radius: 15px;
+  width: 100%;
+  max-width: 400px;
+  max-height: 85vh;
+  position: relative;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.map-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background-color 0.2s ease;
+}
+
+.map-close-btn:hover {
+  background-color: var(--border-color);
+}
+
+.map-close-btn svg {
+  width: 24px;
+  height: 24px;
+  color: var(--text-color);
+}
+
+.map-header {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.map-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--text-color);
+  font-weight: 700;
+}
+
+.map-container {
+  flex: 1;
+  padding: 1rem;
+  overflow: hidden;
+  display: flex;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  border-radius: 0.5rem;
+}
+
+/* Transitions pour le modal */
+.map-modal-enter-active,
+.map-modal-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.map-modal-enter-active .map-modal-content,
+.map-modal-leave-active .map-modal-content {
+  transition: transform 0.3s ease;
+}
+
+.map-modal-enter-from,
+.map-modal-leave-to {
+  opacity: 0;
+}
+
+.map-modal-enter-from .map-modal-content {
+  transform: translateY(100%);
+}
+
+.map-modal-leave-to .map-modal-content {
+  transform: translateY(100%);
+}
+
+@media (max-width: 768px) {
+  .map-modal-content {
+    max-height: 90vh;
+  }
+
+  .map-header {
+    padding: 1rem 1.5rem;
+  }
+
+  .map-header h3 {
+    font-size: 1.25rem;
   }
 }
 </style>
