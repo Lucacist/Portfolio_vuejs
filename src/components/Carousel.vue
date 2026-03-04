@@ -20,7 +20,7 @@
     <div class="carousel-container">
       <div class="fade-overlay left"></div>
       <div class="carousel-content" ref="carouselContent">
-        <div class="carousel-track">
+        <div class="carousel-track" ref="carouselTrack">
           <!-- Premier ensemble d'éléments (pour l'effet infini) -->
           <div class="carousel-item" v-for="(skill, index) in skills" :key="'start-'+index">
             <div class="card">
@@ -93,6 +93,7 @@ const skills = [
 ];
 
 const carouselContent = ref(null);
+const carouselTrack = ref(null);
 const isDarkTheme = ref(false);
 const isScrolling = ref(false);
 const animationId = ref(null);
@@ -176,7 +177,7 @@ function getSkillImagePath(filename) {
 
 function next() {
   // Pause l'animation CSS
-  const track = document.querySelector('.carousel-track');
+  const track = carouselTrack.value;
   if (track && !isScrolling.value) {
     isScrolling.value = true;
     
@@ -202,7 +203,7 @@ function next() {
 
 function prev() {
   // Pause l'animation CSS
-  const track = document.querySelector('.carousel-track');
+  const track = carouselTrack.value;
   if (track && !isScrolling.value) {
     isScrolling.value = true;
     
@@ -226,19 +227,6 @@ function prev() {
   }
 }
 
-// Fonction pour vérifier et ajuster le défilement infini
-// Note: Cette fonction n'est plus utilisée avec l'animation CSS
-function checkInfiniteScroll() {
-  // Animation gérée par CSS maintenant
-  return;
-}
-
-// Fonction pour démarrer le défilement automatique
-// Note: Cette fonction n'est plus utilisée car l'animation est gérée par CSS
-function startAutoScroll() {
-  // Animation gérée par CSS maintenant
-  return;
-}
 </script>
 
 <style scoped>
@@ -309,11 +297,11 @@ function startAutoScroll() {
 }
 
 /* Styles spécifiques au thème sombre */
-.dark-theme .fade-overlay.left {
+[data-theme="dark"] .fade-overlay.left {
   background: linear-gradient(to right, var(--background-color) 0%, var(--background-color) 20%, transparent 100%);
 }
 
-.dark-theme .fade-overlay.right {
+[data-theme="dark"] .fade-overlay.right {
   background: linear-gradient(to left, var(--background-color) 0%, var(--background-color) 20%, transparent 100%);
 }
 
@@ -324,7 +312,7 @@ function startAutoScroll() {
 }
 
 .card {
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   height: 120px;
   display: flex;

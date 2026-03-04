@@ -1,28 +1,11 @@
 <script setup>
 import { useI18n } from "vue-i18n";
-import { ref, onMounted } from "vue";
-import emailjs from "@emailjs/browser";
+import { ref } from "vue";
 
 const { t } = useI18n();
 
-// Identifiants EmailJS - assurez-vous qu'ils sont corrects
-const SERVICE_ID = "service_jfajf8j";
-const TEMPLATE_ID = "template_yqasdmf";
-const PUBLIC_KEY = "63kWHzJ-2bYzAhyl2";
-
-// Initialiser EmailJS et reCAPTCHA
-onMounted(() => {
-  try {
-    // Initialiser EmailJS avec votre clé publique
-    emailjs.init(PUBLIC_KEY);
-    console.log("EmailJS initialisé avec succès");
-
-    // Nous initialiserons reCAPTCHA uniquement lorsque l'utilisateur passe à l'étape 2
-    // pour éviter les problèmes de rendu
-  } catch (error) {
-    console.error("Erreur lors de l'initialisation:", error);
-  }
-});
+// URL de l'API Vercel (à remplacer par ton URL de déploiement Vercel)
+const API_URL = import.meta.env.VITE_API_URL || "https://portfolio-api.vercel.app";
 
 const form = ref({
   name: "",
@@ -33,66 +16,15 @@ const form = ref({
 
 // Gestion du stepper
 const currentStep = ref(1);
-const totalSteps = 2;
-
-// Clé site reCAPTCHA - votre clé personnelle
-const recaptchaSiteKey = "6LeY13orAAAAAPJhZXnMRxbKVUFjzM5cpb7JKNrK";
-const recaptchaVerified = ref(false);
-const recaptchaToken = ref("");
 
 const formSubmitted = ref(false);
 const formError = ref(false);
 const isLoading = ref(false);
 const errorMessage = ref("");
 
-// Fonction pour initialiser reCAPTCHA
-const initRecaptcha = () => {
-  console.log("Tentative d'initialisation de reCAPTCHA...");
-  // Vérifier si l'objet grecaptcha est disponible
-  if (window.grecaptcha) {
-    try {
-      // Attendre que le DOM soit prêt et que le conteneur soit visible
-      setTimeout(() => {
-        const recaptchaContainer = document.getElementById(
-          "recaptcha-container"
-        );
-        if (recaptchaContainer) {
-          // Nettoyer le conteneur avant de rendre un nouveau reCAPTCHA
-          recaptchaContainer.innerHTML = "";
-
-          console.log("Rendu du reCAPTCHA...");
-          window.grecaptcha.render("recaptcha-container", {
-            sitekey: recaptchaSiteKey,
-            callback: (token) => {
-              recaptchaVerified.value = true;
-              recaptchaToken.value = token;
-              console.log("reCAPTCHA vérifié");
-            },
-            "expired-callback": () => {
-              recaptchaVerified.value = false;
-              recaptchaToken.value = "";
-              console.log("reCAPTCHA expiré");
-            },
-          });
-          console.log("reCAPTCHA initialisé avec succès");
-        } else {
-          console.error("Conteneur reCAPTCHA non trouvé");
-        }
-      }, 300); // Délai pour s'assurer que le DOM est mis à jour
-    } catch (error) {
-      console.error("Erreur lors de l'initialisation de reCAPTCHA:", error);
-    }
-  } else {
-    // Si grecaptcha n'est pas encore disponible, réessayer après un court délai
-    console.log("grecaptcha non disponible, nouvelle tentative dans 500ms");
-    setTimeout(initRecaptcha, 500);
-  }
-};
-
 // Passer à l'étape suivante
 const nextStep = () => {
   if (currentStep.value === 1) {
-    // Valider les champs de la première étape
     if (!form.value.name || !form.value.email) {
       formError.value = true;
       errorMessage.value = t("contact.fillRequired");
@@ -100,13 +32,6 @@ const nextStep = () => {
     }
     currentStep.value++;
     formError.value = false;
-
-    // Réinitialiser reCAPTCHA lorsqu'on passe à l'étape 2
-    // Attendre que le DOM soit mis à jour avant d'initialiser reCAPTCHA
-    console.log("Passage à l'étape 2, initialisation du reCAPTCHA...");
-    setTimeout(() => {
-      initRecaptcha();
-    }, 500);
   }
 };
 
@@ -118,7 +43,7 @@ const prevStep = () => {
   }
 };
 
-const submitForm = () => {
+const submitForm = async () => {
   // Vérifier tous les champs requis
   if (!form.value.name || !form.value.email || !form.value.message) {
     formError.value = true;
@@ -126,36 +51,26 @@ const submitForm = () => {
     return;
   }
 
-  // Vérifier si reCAPTCHA est validé
-  if (!recaptchaVerified.value) {
-    formError.value = true;
-    errorMessage.value = t("contact.recaptcha");
-    return;
-  }
-
   isLoading.value = true;
   formError.value = false;
 
-  // Obtenir la date et l'heure actuelles formatées
-  const now = new Date();
-  const dateFormatted = now.toLocaleDateString();
-  const timeFormatted = now.toLocaleTimeString();
+  try {
+    const response = await fetch(`${API_URL}/api/contact`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: form.value.name,
+        email: form.value.email,
+        company: form.value.company,
+        message: form.value.message,
+      }),
+    });
 
-  // Préparer les paramètres du template
-  const templateParams = {
-    from_name: form.value.name,
-    from_email: form.value.email,
-    company: form.value.company || "Non spécifiée",
-    message: form.value.message,
-    date: dateFormatted,
-    time: timeFormatted,
-  };
+    const data = await response.json();
 
-  // Utiliser la méthode send comme indiqué dans la documentation
-  emailjs
-    .send(SERVICE_ID, TEMPLATE_ID, templateParams)
-    .then((response) => {
-      console.log("Email envoyé avec succès!", response.status, response.text);
+    if (response.ok) {
       formSubmitted.value = true;
       isLoading.value = false;
 
@@ -163,21 +78,26 @@ const submitForm = () => {
       form.value = {
         name: "",
         email: "",
+        company: "",
         message: "",
       };
 
       // Masquer le message de succès après 5 secondes
       setTimeout(() => {
         formSubmitted.value = false;
+        currentStep.value = 1;
       }, 5000);
-    })
-    .catch((error) => {
-      console.error("Erreur lors de l'envoi de l'email:", error);
+    } else {
       formError.value = true;
-      errorMessage.value =
-        "Une erreur est survenue lors de l'envoi. Vérifiez que vos identifiants EmailJS sont corrects.";
+      errorMessage.value = data.error || t("contact.error");
       isLoading.value = false;
-    });
+    }
+  } catch (error) {
+    console.error("Erreur lors de l'envoi:", error);
+    formError.value = true;
+    errorMessage.value = t("contact.error");
+    isLoading.value = false;
+  }
 };
 </script>
 
@@ -274,12 +194,6 @@ const submitForm = () => {
                 rows="5"
                 required
               ></textarea>
-            </div>
-
-            <!-- Google reCAPTCHA -->
-            <div class="recaptcha-wrapper">
-              <p class="recaptcha-label">{{ t("contact.verifyHuman") }}</p>
-              <div id="recaptcha-container" class="recaptcha-container"></div>
             </div>
 
             <div class="form-actions">
@@ -431,6 +345,7 @@ textarea:focus {
   outline: none;
   border-color: var(--primary-color);
   box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb, 0, 123, 255), 0.25);
+  animation: focusAnimation 0.3s ease;
 }
 
 input:-webkit-autofill,
@@ -548,30 +463,6 @@ textarea:-webkit-autofill:focus {
 .submit-btn:disabled {
   opacity: 0.7;
   cursor: not-allowed;
-}
-
-/* Styles pour le conteneur reCAPTCHA */
-.recaptcha-wrapper {
-  margin: 1.5rem 0;
-  padding: 1rem;
-  background-color: rgba(var(--primary-color-rgb, 0, 123, 255), 0.05);
-  border-radius: 8px;
-  border: 1px dashed rgba(var(--primary-color-rgb, 0, 123, 255), 0.3);
-}
-
-.recaptcha-label {
-  margin-bottom: 1rem;
-  font-size: 0.9rem;
-  color: var(--text-color);
-  text-align: center;
-}
-
-.recaptcha-container {
-  display: flex;
-  justify-content: center;
-  transform: scale(1);
-  transition: transform 0.3s ease;
-  min-height: 78px; /* Hauteur minimale pour éviter les sauts de mise en page */
 }
 
 /* Styles pour le stepper */
@@ -714,19 +605,9 @@ textarea:-webkit-autofill:focus {
   .page-header h1 {
     font-size: 2rem;
   }
-
-  .recaptcha-container {
-    transform: scale(0.9);
-    transform-origin: left center;
-  }
 }
 
 @media (max-width: 480px) {
-  .recaptcha-container {
-    transform: scale(0.85);
-    transform-origin: left center;
-  }
-
   .submit-btn {
     padding: 0.9rem 1.5rem;
   }
@@ -745,8 +626,4 @@ textarea:-webkit-autofill:focus {
   }
 }
 
-input:focus,
-textarea:focus {
-  animation: focusAnimation 0.3s ease;
-}
 </style>

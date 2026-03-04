@@ -1,7 +1,8 @@
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import { useI18n } from "vue-i18n";
 import GameOfLife from "./GameOfLife.vue";
+import { projects as projectsData } from "../data/projects.js";
 
 const { t } = useI18n();
 
@@ -36,77 +37,8 @@ onMounted(() => {
   });
 });
 
-// Créer un tableau de projets pour vue3-masonry
-const projects = ref([
-  {
-    id: 1,
-    image: "/img/signal.png",
-    tech: ["/img/competences/python.svg"]
-  },
-  {
-    id: 2,
-    image: "/img/New-life.png",
-    tech: ["/img/competences/next.svg", "/img/competences/CSS.svg", "/img/competences/Postgresql.svg"]
-  },
-  {
-    id: 3,
-    image: "/img/bdd.png",
-    tech: ["/img/competences/MySQL.svg"]
-  },
-  {
-    id: 4,
-    image: "/img/strongbox.svg",
-    tech: ["/img/competences/C++.svg", "/img/competences/Arduino.svg"]
-  },
-  {
-    id: 5,
-    tech: ["/img/competences/C++.svg", "/img/competences/C.svg"]
-  },
-  {
-    id: 6,
-    image: "/img/formation-tel-tab.png",
-    tech: ["/img/competences/next.svg", "/img/competences/CSS.svg", "/img/competences/Postgresql.svg"]
-  },
-  {
-    id: 7,
-    image: "/img/ancien-portfolio.png",
-    tech: ["/img/competences/HTML.svg", "/img/competences/CSS.svg", "/img/competences/javascript.svg"]
-  },
-  {
-    id: 8,
-    image: "/img/Stagelink.png",
-    tech: ["/img/competences/php.svg", "/img/competences/CSS.svg", "/img/competences/MySQL.svg"]
-  },
-  {
-    id: 9,
-    image: "/img/plugin-guest-wifi.png",
-    tech: ["/img/competences/php.svg", "/img/competences/CSS.svg", "/img/competences/MySQL.svg"]
-  },
-  {
-    id: 10,
-    image: "/img/plugin-compte--pargne-retraite-.png",
-    tech: ["/img/competences/php.svg", "/img/competences/CSS.svg", "/img/competences/MySQL.svg"]
-  },
-  {
-    id: 11,
-    image: "/img/portail-assystem.png",
-    tech: ["/img/competences/Vue.js.svg", "/img/competences/Microsoft_.NET_logo.svg", "/img/competences/CSS.svg", "/img/competences/Postgresql.svg"]
-  },
-  {
-    id: 12,
-    image: "/img/clock.png",
-    tech: ["/img/competences/HTML.svg", "/img/competences/CSS.svg"]
-  },
-  {
-    id: 13,
-    image: "/img/weather-station.png",
-    tech: ["/img/competences/Arduino.svg", "/img/competences/C++.svg"]
-  },
-  {
-    id: 14,
-    image: "/img/funky.webp",
-  }
-]);
+// Utiliser les données centralisées des projets
+const projects = ref(projectsData);
 </script>
 
 <template>
@@ -121,7 +53,7 @@ const projects = ref([
         <router-link :to="{ name: 'project-detail', params: { id: item.id } }" class="objet-link">
           <div class="objet">
             <div class="image">
-              <img v-if="item.id !== 5" :src="item.image" alt="img" />
+              <img v-if="item.id !== 5" :src="item.image" :alt="getLocalizedProjectTitle(item.id)" />
               <GameOfLife v-else />
             </div>
             <div class="icone">

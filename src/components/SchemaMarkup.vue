@@ -29,7 +29,7 @@ const updateSchemaMarkup = () => {
       : 'Web Developer specialized in creating websites, applications and plugins',
     'sameAs': [
       'https://github.com/Lucacist', // Remplacez par vos liens réels
-      'https://linkedin.com/in/votre-profil' // Remplacez par vos liens réels
+      'https://www.linkedin.com/in/luca-fourfooz-593978336/'
     ],
     'knowsAbout': [
       'Web Development',

@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
@@ -29,8 +29,8 @@ const currentYear = ref(new Date().getFullYear());
           <div class="link-group">
             <h4>{{ t('footer.social') }}</h4>
             <ul>
-              <li><a href="https://www.linkedin.com/in/luca-fourfooz-593978336/" target="_blank">LinkedIn</a></li>
-              <li><a href="https://github.com/Lucacist" target="_blank">GitHub</a></li>
+              <li><a href="https://www.linkedin.com/in/luca-fourfooz-593978336/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+              <li><a href="https://github.com/Lucacist" target="_blank" rel="noopener noreferrer">GitHub</a></li>
             </ul>
           </div>
         </div>

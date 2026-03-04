@@ -1,8 +1,5 @@
 <script setup>
-import { useI18n } from "vue-i18n";
 import ContProjets from "../components/cont-projets.vue";
-
-const { t } = useI18n();
 </script>
 
 <template>

@@ -17,15 +17,15 @@ const { t } = useI18n();
       <img
         class="assystem-logo"
         src="/img/entreprise/Logo_Assystem_2.svg"
-        alt=""
+        alt="Logo Assystem"
       />
       <div class="entreprise-image2">
-        <img class="assystem-logo" src="/img/entreprise/edf.svg" alt="" />
+        <img class="assystem-logo" src="/img/entreprise/edf.svg" alt="Logo EDF" />
 
         <img
           class="assystem-logo"
           src="/img/entreprise/Logo_Orano.svg"
-          alt=""
+          alt="Logo Orano"
         />
       </div>
     </div>

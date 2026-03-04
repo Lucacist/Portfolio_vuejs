@@ -23,7 +23,7 @@
       
 
       <a
-        href="../downloads/CVLucaFourfooz.pdf"
+        href="/downloads/CVLucaFourfooz.pdf"
         target="_blank"
         rel="noopener noreferrer"
         download
@@ -192,31 +192,29 @@ const { t } = useI18n();
 .animated-button {
   position: relative;
   overflow: hidden;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   display: flex;
   min-height: 49.6px;
   align-items: center;
   gap: 0.2rem;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   cursor: pointer;
   padding: 0 58px;
-color: var(--background-color);
+  color: var(--background-color);
 }
 
 .animated-button svg {
   position: absolute;
-  width: 24px;
+  width: 49.6px;
   z-index: 9;
   background-color: var(--text-color);
   display: flex;
   height: 100%;
   align-items: center;
   border-radius: 80px;
-width: 49.6px;
-padding: 0 15px;
-transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  padding: 0 15px;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .animated-button .arr-1 {

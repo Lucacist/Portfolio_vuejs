@@ -32,8 +32,8 @@
         <div class="project-image">
           <img
             v-if="project.id !== 5 && project.id !== 4"
-            :src="project.image"
-            alt="Image du projet"
+            :src="project.imageDetail || project.image"
+            :alt="getLocalizedProjectTitle(project.id)"
           />
           <GameOfLife v-if="project.id === 5" />
           <StrongboxDemo v-if="project.id === 4" />
@@ -159,12 +159,13 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from "vue";
+import { computed, onMounted } from "vue";
 import { useRoute } from "vue-router";
 import { useI18n } from "vue-i18n";
 import GameOfLife from "../components/GameOfLife.vue";
 import StrongboxDemo from "../components/StrongboxDemo.vue";
 import ProjectDetails from "../components/ProjectDetails.vue";
+import { projects as projectsData } from "../data/projects.js";
 
 // Récupérer l'ID du projet depuis les paramètres de l'URL
 const route = useRoute();
@@ -181,162 +182,12 @@ const getLocalizedProjectDescription = (projectId) => {
   return t(`projects.project${projectId}.description`) || "";
 };
 
-// Liste des projets (à terme, cette liste pourrait être importée d'un store ou d'un service)
-const projectsList = ref([
-  {
-    id: 1,
-    image: "/img/illustration.png",
-    tech: ["/img/competences/python.svg"],
-    description:
-      "/",
-    github: "",
-    hasDownload: true,
-    downloadFile: "/downloads/Escape-no-game.ipynb",
-  },
-  {
-    id: 2,
-    image: "/img/New-life.png",
-    tech: ["/img/competences/next.svg", "/img/competences/CSS.svg"],
-    description:
-      "/",
-    github: "https://github.com/Lucacist/new-life-next",
-    hasDownload: false,
-    siteUrl: "https://new-life-app.netlify.app",
-    inProgress: true,
-  },
-  {
-    id: 3,
-    image: "/img/bdd.png",
-    tech: ["/img/competences/MySQL.svg"],
-    description:
-      "/",
-    github: "",
-    hasDownload: false,
-  },
-  {
-    id: 4,
-    image: "/img/strongbox.svg",
-    tech: ["/img/competences/C++.svg", "/img/competences/Arduino.svg"],
-    description:
-      "/",
-    github: "",
-    hasDownload: true,
-    downloadFile: "/downloads/strongbox.ino",
-  },
-  {
-    id: 5,
-    tech: ["/img/competences/C++.svg", "/img/competences/C.svg"],
-    description:
-      "/",
-    github: "https://github.com/Lucacist/jeu-de-Conway-projet",
-    hasDownload: false,
-  },
-  {
-    id: 6,
-    image: "/img/formation-tel-tab.png",
-    tech: ["/img/competences/next.svg", "/img/competences/CSS.svg", "/img/competences/Postgresql.svg"],
-    description:
-      "/",
-    github: "https://github.com/Lucacist/App-cours-next",
-    hasDownload: false,
-    downloadFile: "/downloads/formation-site.zip",
-    siteUrl: "https://cours-chatos.netlify.app",
-  },
-  {
-    id: 7,
-    image: "/img/ancien-portfolio.png",
-    tech: [
-      "/img/competences/HTML.svg",
-      "/img/competences/CSS.svg",
-      "/img/competences/javascript.svg",
-    ],
-    description:
-      "/",
-    github: "https://github.com/username/old-portfolio",
-    hasDownload: false,
-    siteUrl: "https://lucacist.github.io/Portfolio/src/Home.html",
-  },
-  {
-    id: 8,
-    image: "/img/Stagelink.png",
-    tech: [
-      "/img/competences/php.svg",
-      "/img/competences/CSS.svg",
-      "/img/competences/MySQL.svg",
-    ],
-    description:
-      "/",
-    github: "https://github.com/Lucacist/StageLinkV1",
-    hasDownload: false,
-  },
-  {
-    id: 9,
-    image: "/img/plugin-guest-wifi.png",
-    tech: [
-      "/img/competences/php.svg",
-      "/img/competences/CSS.svg",
-      "/img/competences/MySQL.svg",
-    ],
-    description: "/",
-    github: "",
-    hasDownload: false,
-  },
-  {
-    id: 10,
-    image: "",
-    tech: [
-      "/img/competences/php.svg",
-      "/img/competences/CSS.svg",
-      "/img/competences/MySQL.svg",
-    ],
-    description: "/",
-    github: "",
-    hasDownload: false,
-    inProgress: true,
-  },
-  {
-    id: 11,
-    image: "",
-    tech: [
-      "/img/competences/php.svg",
-      "/img/competences/CSS.svg",
-      "/img/competences/MySQL.svg",
-    ],
-    description: "/",
-    github: "",
-    hasDownload: false,
-    inProgress: true,
-  },
-  {
-    id: 12,
-    image: "/img/clock.png",
-    tech: ["/img/competences/HTML.svg", "/img/competences/CSS.svg"],
-    description: "/",
-    github: "https://github.com/Lucacist/clock",
-    hasDownload: false,
-    siteUrl: "https://lucacist.github.io/clock/clock.html",
-  },
-  {
-    id: 13,
-    image: "/img/weather-station.png",
-    tech: ["/img/competences/Arduino.svg", "/img/competences/C++.svg"],
-    description: "/",
-    github: "",
-    hasDownload: false,
-  },
-  {
-    id: 14,
-    image: "/img/funky.webp",
-    description: "/",
-    github: "",
-    hasDownload: false,
-    inProgress: true,
-  }
-]);
+// Utiliser les données centralisées des projets
+const projectsList = projectsData;
 
 // Trouver le projet correspondant à l'ID
 const project = computed(() => {
-  return projectsList.value.find((p) => p.id === projectId.value) || null;
+  return projectsList.find((p) => p.id === projectId.value) || null;
 });
 
 // Titre de la page

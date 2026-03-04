@@ -1,6 +1,6 @@
 <script setup>
 import { useI18n } from "vue-i18n";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import Carousel from "../components/Carousel.vue";
 import projetetcv from "../components/projetetcv.vue";
 import propositions_projets from "../components/propositions_projets.vue";
@@ -63,6 +63,10 @@ const closeMapModal = () => {
   selectedCity.value = null;
   document.body.style.overflow = '';
 };
+
+onUnmounted(() => {
+  document.body.style.overflow = '';
+});
 </script>
 
 <template>
@@ -108,6 +112,8 @@ const closeMapModal = () => {
           <div class="hero-buttons" v-if="showButtons">
             <a
               href="https://www.linkedin.com/in/luca-fourfooz-593978336/"
+              target="_blank"
+              rel="noopener noreferrer"
               class="button-animation linkedin-button"
             >
               <svg
@@ -134,6 +140,8 @@ const closeMapModal = () => {
             >
             <a
               href="https://github.com/Lucacist"
+              target="_blank"
+              rel="noopener noreferrer"
               class="button-animation github-button"
             >
               <svg
@@ -153,7 +161,7 @@ const closeMapModal = () => {
           </div>
         </div>
       </div>
-      <img src="/img/fr.svg" alt="" />
+      <img src="/img/fr.svg" alt="Drapeau français" />
     </div>
     <div class="hero-fleche">
       <svg
@@ -228,7 +236,7 @@ const closeMapModal = () => {
           <button @click="openMapModal('ville2')"><span>📍</span> {{ t("home.ville2") }}</button>
         </div>
       </div>
-      <img src="/img/pp.png" alt="" />
+      <img src="/img/pp.png" alt="Profil de Luca" />
     </div>
     <div class="carousell">
       <h2>{{ t("home.carouselTitle") }}</h2>
@@ -265,8 +273,9 @@ const closeMapModal = () => {
               <iframe
                 v-if="selectedCity"
                 :src="selectedCity.iframe"
-                frameborder="0"
+                :title="selectedCity?.name"
                 allowfullscreen
+                style="border: 0;"
               ></iframe>
             </div>
           </div>
@@ -474,7 +483,6 @@ const closeMapModal = () => {
 .carousell {
   width: 90%;
   overflow: hidden;
-  margin: 0 auto;
   max-width: 1200px;
   margin: 5rem auto;
 }
