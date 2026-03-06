@@ -145,6 +145,42 @@
             {{ $t("projects.visitSite") }}
           </a>
         </div>
+
+        <!-- Documents téléchargeables -->
+        <div v-if="project.documents && project.documents.length > 0" class="project-documents">
+          <h3>{{ $t("projects.documents") }}</h3>
+          <div class="documents-list">
+            <a
+              v-for="(doc, index) in project.documents"
+              :key="index"
+              :href="doc.file"
+              download
+              class="document-button"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              <span>{{ doc.nameKey ? $t(doc.nameKey) : doc.name }}</span>
+              <span class="file-type">{{ doc.type.toUpperCase() }}</span>
+            </a>
+          </div>
+        </div>
       </div>
 
       <div v-else class="project-not-found">
@@ -368,5 +404,63 @@ onMounted(() => {
     flex-direction: column;
     align-items: center;
   }
+}
+
+/* Documents section */
+.project-documents {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.project-documents h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+.documents-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.document-button {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background-color: var(--background-color-alt);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.document-button:hover {
+  transform: translateX(5px);
+  border-color: var(--primary-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.document-button svg {
+  flex-shrink: 0;
+  color: var(--primary-color);
+}
+
+.document-button span:first-of-type {
+  flex: 1;
+}
+
+.file-type {
+  padding: 0.25rem 0.75rem;
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 </style>

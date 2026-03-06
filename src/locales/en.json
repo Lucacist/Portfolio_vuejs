@@ -48,9 +48,10 @@
     "technologiesUsed": "Technologies used",
     "description": "Description",
     "descriptionComingSoon": "Detailed project description coming soon...",
-    "downloadCode": "Download code",
+    "downloadCode": "Download Code",
     "viewOnGithub": "View on GitHub",
     "visitSite": "Visit Site",
+    "documents": "Documents",
     "backToProjects": "Back to Projects",
     "projectNotFound": "Project Not Found",
     "projectDoesNotExist": "The project you are looking for does not exist.",
@@ -198,11 +199,18 @@
     },
     "project14": {
       "title": "FunkyTown city",
-      "description": "Description du projet 14"
+      "doc1": "Deliverable 1",
+      "doc2": "Deliverable 2",
+      "description": "The \"FunkyTown Network Infrastructure\" project consists of designing, planning, and deploying a global network architecture for several entities (ESN eXia, Library, Engie, DIGIPLEX, and a Datacenter). It aims to provide reliable, secure, and scalable inter-site connectivity while optimizing resources through a rigorous addressing plan.\n\n<strong>Main features:</strong>\n• Development of a comprehensive IPv4 (VLSM/CIDR) and IPv6 addressing plan\n• Advanced local network segmentation using dedicated VLANs per department\n• Secure interconnection of sites to the ISP's DSLAM via point-to-point links\n• Implementation of an IPv6 tunnel between the eXia site and the Datacenter (Meraki cloud access)\n• Deployment of wireless networks with distinct SSIDs (Employees and Guests)\n• Project planning and tracking using Gantt and PERT charts\n\n<strong>Technical prerequisites:</strong>\n• Network equipment (Routers, L2/L3 Switches, Controllers, and WiFi access points)\n• Local service servers (DHCP, DNS, FTP)\n• Mockup and simulation tool (Cisco Packet Tracer)\n\n<strong>Installation:</strong>\nThe deployment follows a structured plan ranging from needs analysis to physical installation. It includes the strategic cabling of sites (star and hierarchical topologies) and the implementation of link aggregation (EtherChannel) to ensure redundancy and bandwidth.\n\n<strong>Configuration:</strong>\nThe configuration integrates inter-VLAN routing, Network Address Translation (NAT) for Internet access, and dynamic address allocation (DHCP). Switch management is centralized via the VTP protocol, and cloud traffic routing is handled by IPv6 static routes.\n\n<strong>Usage:</strong>\nOn a daily basis, employees and the public access resources in a fluid and segmented manner. Network administrators monitor the infrastructure remotely via dedicated management VLANs and manage cloud equipment centrally thanks to the IPv6 tunnel.\n\n<strong>Security:</strong>\nThe architecture protects data through traffic isolation (VLANs), remote access restriction (SSH), port control (Port Security), and wireless network encryption (WPA2-PSK). NAT hides private addresses from external attacks."
     },
     "project15": {
       "title": "Security and administration",
-      "description": "Description du projet 15"
+      "description": "The \"XANADU IT System Administration and Securing\" project supports the company during its relocation and expansion. Facing the risks of cyberattacks such as ransomware, this overhaul transforms an aging infrastructure into a stable, reliable, secure, and easy-to-administer information system.\n\n<strong>Main features:</strong>\n• Mapping and complete overhaul of the Active Directory\n• Secure interconnection between the main and remote sites via MPLS VPN\n• Granular management of access rights and shared folders by department\n• Tiered backup plan (critical, important data, etc.)\n• Implementation of a monitoring system with security alerts\n• Creation of automated administration scripts (PowerShell/Bash)\n• Vulnerability audit via a security questionnaire\n\n<strong>Technical prerequisites:</strong>\n• Windows Server 2019 (AD, DNS, DHCP) and Linux servers\n• Network infrastructure with firewalls and SLA-backed MPLS VPN link\n• Compatibility with the existing ERP (PostgreSQL) and Office 365 suite\n\n<strong>Installation:</strong>\nThe deployment is based on a detailed target mapping and a mockup validating the new architecture. It includes the installation of network equipment, server setup, and the secure integration of workstations into the domain.\n\n<strong>Configuration:</strong>\nThe configuration relies on an optimized structuring of Organizational Units (OUs). Group Policies (GPOs) are applied to harden security. A strict firewall policy and network filtering rules are configured according to ANSSI recommendations.\n\n<strong>Usage:</strong>\nOn a daily basis, the infrastructure allows:\n• Employees to access resources remotely in complete security\n• IT correspondents to manage accounts for their own department\n• The IT team to monitor critical events in real time\n• Ensuring a return to normal operations within 4 hours for critical services\n\n<strong>Security:</strong>\nThe architecture guarantees confidentiality, integrity, availability, and traceability (CIAT). The system is protected against ransomware through a robust backup plan, a principle of least privilege policy, and continuous monitoring."
+    },
+    "project16": {
+      "title": "Software engineering",
+      "doc1": "Final deliverable",
+      "description": "The \"EasySave\" project is the iterative development of a professional backup software for the publisher ProSoft. Built with C# and .NET 10.0, it evolves from a console application to a multithreaded graphical solution integrating data centralization via Docker.\n\n<strong>Main features:</strong>\n• Execution of full or differential backup jobs (sequential then parallel)\n• Generation of daily logs (JSON/XML) and real-time state tracking via a dedicated DLL\n• On-the-fly file encryption using the external CryptoSoft tool\n• Advanced management: priority file processing and bandwidth limitation\n• Real-time interaction: pause, resume (Play), and stop backup jobs\n• Business software detection to automatically suspend operations\n• Centralization of activity logs on a Docker server\n\n<strong>Technical prerequisites:</strong>\n• C# language and .NET 10.0 framework (MVVM architecture)\n• WPF graphical interface or equivalent\n• Docker containerization for the centralization server\n• Versioning and modeling tools (Git, Visual Studio, ArgoUML)\n\n<strong>Installation:</strong>\nThe software is designed for easy deployment on client workstations. The installation includes setting up the executable, dynamic libraries (EasyLog.dll), and the encryption tool. The centralization system requires the prior deployment of a Docker container on the corporate network.\n\n<strong>Configuration:</strong>\nUsers can configure the software via the graphical interface. Settings include defining source/target paths (local, external, or network drives), choosing the log format (JSON or XML), selecting file extensions to encrypt, and declaring blocking business software.\n\n<strong>Usage:</strong>\nAvailable in English and French, the application can be operated via an intuitive graphical interface or command line (CLI). Users can monitor transfer progress in real time, interact with ongoing tasks, and access local or centralized histories for complete traceability."
     }
   },
   "contact": {
@@ -231,7 +239,7 @@
     "switchTheme": "Switch theme"
   },
   "qrcode": {
-    "title": "Scan 🚀",
+    "title": "Scan me 🚀",
     "buttonTitle": "Show QR Code"
   },
   "footer": {

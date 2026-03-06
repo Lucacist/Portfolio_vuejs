@@ -14,7 +14,7 @@ export const projects = [
   },
   {
     id: 2,
-    image: "/img/New-life.png",
+    image: "/img/cigarrette.png",
     tech: ["/img/competences/next.svg", "/img/competences/CSS.svg", "/img/competences/Postgresql.svg"],
     description: "/",
     github: "https://github.com/Lucacist/new-life-next",
@@ -145,7 +145,11 @@ export const projects = [
     description: "/",
     github: "",
     hasDownload: false,
-    inProgress: true,
+    inProgress: false,
+    documents: [
+      { nameKey: "projects.project14.doc1", file: "/downloads/Livrable_1_Equipe_1_Réseau.docx", type: "docx" },
+      { nameKey: "projects.project14.doc2", file: "/downloads/Livrable_2_Equipe_1_Réseau.docx", type: "docx" }
+    ],
   },
   {
     id: 15,
@@ -155,5 +159,17 @@ export const projects = [
     github: "",
     hasDownload: false,
     inProgress: false,
+  },
+  {
+    id: 16,
+    image: "/img/genielogiciel.png",
+    tech: ["/img/competences/C_sharp.svg", "/img/competences/docker.svg", "/img/competences/dotnet.svg", "/img/competences/Avalonia.svg"],
+    description: "/",
+    github: "https://github.com/Lucacist/EasySave",
+    hasDownload: false,
+    inProgress: false,
+    documents: [
+      { nameKey: "projects.project16.doc1", file: "/downloads/Livrable_Final-grp-5.pdf", type: "pdf" },
+    ],
   }
 ];

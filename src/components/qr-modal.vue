@@ -1,5 +1,6 @@
 <script setup>
-import { watch, onMounted, onUnmounted } from 'vue';
+import { ref, watch, onMounted, onUnmounted, nextTick } from 'vue';
+import QRCode from 'qrcode';
 
 const props = defineProps({
   isOpen: {
@@ -10,8 +11,25 @@ const props = defineProps({
 
 const emit = defineEmits(['close']);
 
+const qrCanvas = ref(null);
+const siteUrl = 'https://porfolioluca.netlify.app';
+
 const closeModal = () => {
   emit('close');
+};
+
+const generateQR = async () => {
+  if (qrCanvas.value) {
+    await QRCode.toCanvas(qrCanvas.value, siteUrl, {
+      width: 250,
+      margin: 2,
+      color: {
+        dark: '#000000',
+        light: '#FFFFFF'
+      },
+      errorCorrectionLevel: 'H'
+    });
+  }
 };
 
 // Fermer avec la touche Escape
@@ -22,9 +40,11 @@ const handleEscape = (e) => {
 };
 
 // Empêcher le scroll quand le modal est ouvert
-watch(() => props.isOpen, (newValue) => {
+watch(() => props.isOpen, async (newValue) => {
   if (newValue) {
     document.body.style.overflow = 'hidden';
+    await nextTick();
+    generateQR();
   } else {
     document.body.style.overflow = '';
   }
@@ -61,15 +81,14 @@ onUnmounted(() => {
               />
             </svg>
           </button>
-          
+
           <div class="qr-container">
-            <h2 class="modal-title">{{ $t('qrcode.title') }}</h2>            
+            <h2 class="modal-title">{{ $t('qrcode.title') }}</h2>
             <div class="qr-code-wrapper">
-              <img src="/img/frame (5).svg" alt="QR Code" class="qr-image">
-                
+              <canvas ref="qrCanvas" class="qr-canvas"></canvas>
             </div>
-            
-            <p class="modal-url">https://porfolioluca.netlify.app</p>
+
+            <p class="modal-url">{{ siteUrl }}</p>
           </div>
         </div>
       </div>
@@ -100,18 +119,19 @@ onUnmounted(() => {
   width: 100%;
   position: relative;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-              0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
   animation: slideUp 0.3s ease-out;
   backdrop-filter: blur(2px);
 }
 
-  
+
 
 @keyframes slideUp {
   from {
     transform: translateY(20px);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
@@ -169,6 +189,12 @@ onUnmounted(() => {
 .qr-code-wrapper {
   padding: 1.5rem;
   border-radius: 1rem;
+  background-color: white;
+}
+
+.qr-canvas {
+  display: block;
+  border-radius: 0.5rem;
 }
 
 .qr-image {
