@@ -248,5 +248,12 @@
     "navigation": "Navigation",
     "social": "Social",
     "allRightsReserved": "Tous droits réservés."
+  },
+  "certifications": {
+    "name": "Nom",
+    "date": "Date",
+    "certification": "Certification",
+    "moocAnssi": "Mooc Anssi",
+    "download": "Télécharger"
   }
 }

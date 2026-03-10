@@ -6,6 +6,7 @@ import projetetcv from "../components/projetetcv.vue";
 import propositions_projets from "../components/propositions_projets.vue";
 import SplitText from "../components/SplitText.vue";
 import entreprise from "../components/entreprise.vue";
+import certif from "../components/certif.vue";
 
 const { t } = useI18n();
 
@@ -245,6 +246,7 @@ onUnmounted(() => {
     <entreprise />
     <propositions_projets />
     <projetetcv />
+    <certif />
 
     <!-- Modal de carte -->
     <Teleport to="body">

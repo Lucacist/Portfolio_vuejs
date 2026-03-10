@@ -88,4 +88,12 @@ a:hover span {
 a span {
     font-size: 1.3rem;
 }
+
+@media (max-width: 768px) {
+  .entreprise {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+}
 </style>
