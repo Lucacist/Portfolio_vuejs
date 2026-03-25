@@ -255,5 +255,44 @@
     "certification": "Certification",
     "moocAnssi": "Mooc Anssi",
     "download": "Télécharger"
+  },
+  "travel": {
+    "title": "Mes Voyages",
+    "subtitle": "Découvrez les destinations que j'ai eu la chance de visiter",
+    "destinations": {
+      "uk": "Angleterre",
+      "ireland": "Irlande",
+      "usa": "États-Unis",
+      "bali": "Bali",
+      "thailand": "Thaïlande",
+      "finland": "Finlande",
+      "spain": "Espagne",
+      "italy": "Italie",
+      "belgium": "Belgique",
+      "portugal": "Portugal",
+      "crete": "Crète",
+      "croatia": "Croatie",
+      "guadeloupe": "Guadeloupe"
+    },
+    "cities": {
+      "london": "Londres",
+      "dublin": "Dublin",
+      "newyork": "New York",
+      "bangkok": "Bangkok",
+      "bali": "Bali",
+      "helsinki": "Helsinki",
+      "madrid": "Madrid",
+      "rome": "Rome",
+      "brussels": "Bruxelles",
+      "lisbon": "Lisbonne",
+      "crete": "Crète",
+      "dubrovnik": "Dubrovnik",
+      "guadeloupe": "Guadeloupe"
+    },
+    "types": {
+      "country": "Pays",
+      "city": "Ville",
+      "island": "Île"
+    }
   }
 }

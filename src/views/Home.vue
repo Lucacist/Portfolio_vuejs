@@ -7,6 +7,7 @@ import propositions_projets from "../components/propositions_projets.vue";
 import SplitText from "../components/SplitText.vue";
 import entreprise from "../components/entreprise.vue";
 import certif from "../components/certif.vue";
+import TravelMap from "../components/TravelMap.vue";
 
 const { t } = useI18n();
 
@@ -247,6 +248,7 @@ onUnmounted(() => {
     <propositions_projets />
     <projetetcv />
     <certif />
+    <TravelMap />
 
     <!-- Modal de carte -->
     <Teleport to="body">
