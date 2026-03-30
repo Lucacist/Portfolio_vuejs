@@ -7,7 +7,6 @@ import propositions_projets from "../components/propositions_projets.vue";
 import SplitText from "../components/SplitText.vue";
 import entreprise from "../components/entreprise.vue";
 import certif from "../components/certif.vue";
-import TravelMap from "../components/TravelMap.vue";
 
 const { t } = useI18n();
 
@@ -248,44 +247,8 @@ onUnmounted(() => {
     <propositions_projets />
     <projetetcv />
     <certif />
-    <TravelMap />
 
-    <!-- Modal de carte -->
-    <Teleport to="body">
-      <Transition name="map-modal">
-        <div v-if="showMapModal" class="map-modal-overlay" @click="closeMapModal">
-          <div class="map-modal-content" @click.stop>
-            <button class="map-close-btn" @click="closeMapModal">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-            <div class="map-header">
-              <h3>📍 {{ selectedCity?.name }}</h3>
-            </div>
-            <div class="map-container">
-              <iframe
-                v-if="selectedCity"
-                :src="selectedCity.iframe"
-                :title="selectedCity?.name"
-                allowfullscreen
-                style="border: 0;"
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      </Transition>
-    </Teleport>
+   
   </div>
 </template>
 
